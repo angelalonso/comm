@@ -1,0 +1,1002 @@
+= shell find To find files: 
+==== shell find To find files:
+{{{
+
+find . -type f
+
+
+}}}
+= shell find To find files by octal permission:
+==== shell find To find files by octal permission:
+{{{
+find . -type f -perm 777
+
+
+}}}
+= shell find To find files with setuid bit set:
+==== shell find To find files with setuid bit set:
+{{{
+find . -xdev ( -perm -4000 ) -type f -print0 | xargs -0 ls -l
+
+
+}}}
+= shell find To find files with extension '.txt' and remove them:
+==== shell find To find files with extension '.txt' and remove them:
+{{{
+find ./path/ -name '*.txt' -exec rm '{}' ;
+
+
+}}}
+= shell find To find files with extension '.txt' and look for a string into them:
+==== shell find To find files with extension '.txt' and look for a string into them:
+{{{
+find ./path/ -name '*.txt' | xargs grep 'string'
+
+
+}}}
+= shell find To find files with size bigger than 5 Mb and sort them by size:
+==== shell find To find files with size bigger than 5 Mb and sort them by size:
+{{{
+find ./ -size +5M -type f -print0 | xargs -0 ls -Ssh
+
+
+}}}
+= shell find To find files bigger thank 2 MB and list them:
+==== shell find To find files bigger thank 2 MB and list them:
+{{{
+find / -type f -size +20000k -exec ls -lh {} ; | awk '{ print $9 ": " $5 }'
+
+
+}}}
+= shell find To find files modified more than 7 days ago and list file information
+==== shell find To find files modified more than 7 days ago and list file information
+{{{
+find . -type f -mtime +7d -ls
+
+
+}}}
+= shell find To find symlinks owned by a user and list file information
+==== shell find To find symlinks owned by a user and list file information
+{{{
+find . -type l --user=username -ls
+
+
+}}}
+= shell find To search for and delete empty directories
+==== shell find To search for and delete empty directories
+{{{
+find . -type d -empty -exec rmdir {} ;
+
+
+}}}
+= shell find To search for directories named build at a max depth of 2 directories
+==== shell find To search for directories named build at a max depth of 2 directories
+{{{
+find . -maxdepth 2 -name build -type d
+
+
+}}}
+= shell find To search all files who are not in .git directory
+==== shell find To search all files who are not in .git directory
+{{{
+find . ! -iwholename '*.git*' -type f
+
+
+}}}
+= shell find Find all files that have the same node (hard link) as MY_FILE_HERE
+==== shell find Find all files that have the same node (hard link) as MY_FILE_HERE
+{{{
+find / -type f -samefile MY_FILE_HERE 2>/dev/null
+
+}}}
+= shell gcc Compile a file
+==== shell gcc Compile a file
+{{{
+gcc file.c
+
+
+}}}
+= shell gcc Compile a file with a custom output
+==== shell gcc Compile a file with a custom output
+{{{
+gcc -o file file.c
+
+
+}}}
+= shell gcc Debug symbols
+==== shell gcc Debug symbols
+{{{
+gcc -g
+
+
+}}}
+= shell gcc Debug with all symbols.
+==== shell gcc Debug with all symbols.
+{{{
+gcc -ggdb3
+
+
+}}}
+= shell gcc Build for 64 bytes
+==== shell gcc Build for 64 bytes
+{{{
+gcc -m64
+
+
+}}}
+= shell gcc Include the directory {/usr/include/myPersonnal/lib/} to the list of path for #include <....>
+==== shell gcc Include the directory {/usr/include/myPersonnal/lib/} to the list of path for #include <....>
+{{{
+
+}}}
+= shell gcc With this option, no warning / error will be reported for the files in {/usr/include/myPersonnal/lib/}
+==== shell gcc With this option, no warning / error will be reported for the files in {/usr/include/myPersonnal/lib/}
+{{{
+gcc -isystem /usr/include/myPersonnal/lib/
+
+
+}}}
+= shell gcc Build a GUI for windows (Mingw) (Will disable the term/console)
+==== shell gcc Build a GUI for windows (Mingw) (Will disable the term/console)
+{{{
+gcc -mwindows
+
+
+}}}
+= shell git To set your identify:
+==== shell git To set your identify:
+{{{
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+
+
+}}}
+= shell git To set your editor:
+==== shell git To set your editor:
+{{{
+git config --global core.editor emacs
+
+
+}}}
+= shell git To enable color:
+==== shell git To enable color:
+{{{
+git config --global color.ui true
+
+
+}}}
+= shell git To stage all changes for commit:
+==== shell git To stage all changes for commit:
+{{{
+git add --all
+
+
+}}}
+= shell git To commit staged changes
+==== shell git To commit staged changes
+{{{
+git commit -m "Your commit message"
+
+
+}}}
+= shell git To edit previous commit message
+==== shell git To edit previous commit message
+{{{
+git commit --amend
+
+
+}}}
+= shell git To removed staged and working directory changes
+==== shell git To removed staged and working directory changes
+{{{
+git reset --hard
+
+
+}}}
+= shell git To remove untracked files
+==== shell git To remove untracked files
+{{{
+git clean -f -d
+
+
+}}}
+= shell git To remove untracked and ignored files
+==== shell git To remove untracked and ignored files
+{{{
+git clean -f -d -x
+
+
+}}}
+= shell git To push to the tracked master branch:
+==== shell git To push to the tracked master branch:
+{{{
+git push origin master
+
+
+}}}
+= shell git To push to a specified repository:
+==== shell git To push to a specified repository:
+{{{
+git push git@github.com:username/project.git
+
+
+}}}
+= shell git To delete the branch "branch_name"
+==== shell git To delete the branch "branch_name"
+{{{
+git branch -D branch_name
+
+
+}}}
+= shell git To see who commited which line in a file
+==== shell git To see who commited which line in a file
+{{{
+git blame filename
+
+
+}}}
+= shell git To sync a fork with the master repo:
+==== shell git To sync a fork with the master repo:
+{{{
+git remote add upstream git@github.com:name/repo.git # Set a new repo
+git remote -v # Confirm new remote repo
+git fetch upstream # Get branches
+git branch -va # List local - remote branches
+git checkout master # Checkout local master branch
+git checkout -b new_branch # Create and checkout a new branch
+git merge upstream/master # Merge remote into local repo
+git show 83fb499 # Show what a commit did.
+git show 83fb499:path/fo/file.ext # Shows the file as it appeared at 83fb499.
+git diff branch_1 branch_2 # Check difference between branches
+git log # Show all the commits
+git status # Show the changes from last commit
+
+}}}
+= shell gpg Create a key
+==== shell gpg Create a key
+{{{
+
+gpg --gen-key
+
+
+
+}}}
+= shell gpg Show keys
+==== shell gpg Show keys
+{{{
+
+To list a summary of all keys
+
+gpg --list-keys
+
+To show your public key
+
+gpg --armor --export
+
+To show the fingerprint for a key
+
+gpg --fingerprint KEY_ID
+
+
+}}}
+= shell gpg Search for keys
+==== shell gpg Search for keys
+{{{
+
+gpg --search-keys 'user@emailaddress.com'
+
+
+
+}}}
+= shell gpg To Encrypt a File
+==== shell gpg To Encrypt a File
+{{{
+
+gpg --encrypt --recipient 'user@emailaddress.com' example.txt
+
+
+
+}}}
+= shell gpg To Decrypt a File
+==== shell gpg To Decrypt a File
+{{{
+
+gpg --output example.txt --decrypt example.txt.gpg
+
+
+
+}}}
+= shell gpg Export keys
+==== shell gpg Export keys
+{{{
+
+gpg --output ~/public_key.txt --armor --export KEY_ID
+gpg --output ~/private_key.txt --armor --export-secret-key KEY_ID
+
+Where KEY_ID is the 8 character GPG key ID.
+
+Store these files to a safe location, such as a USB drive, then
+remove the private key file.
+
+shred -zu ~/private_key.txt
+
+
+}}}
+= shell gpg Import keys
+==== shell gpg Import keys
+{{{
+
+Retrieve the key files which you previously exported.
+
+gpg --import ~/public_key.txt
+gpg --allow-secret-key-import --import ~/private_key.txt
+
+Then delete the private key file.
+
+shred -zu ~/private_key.txt
+
+
+}}}
+= shell gpg Revoke a key
+==== shell gpg Revoke a key
+{{{
+
+Create a revocation certificate.
+
+gpg --output ~/revoke.asc --gen-revoke KEY_ID
+
+Where KEY_ID is the 8 character GPG key ID.
+
+After creating the certificate import it.
+
+gpg --import ~/revoke.asc
+
+Then ensure that key servers know about the revokation.
+
+gpg --send-keys KEY_ID
+
+
+}}}
+= shell gpg Signing and Verifying files
+==== shell gpg Signing and Verifying files
+{{{
+
+If you're uploading files to launchpad you may also want to include
+a GPG signature file.
+
+gpg -ba filename
+
+or if you need to specify a particular key:
+
+gpg --default-key <key ID> -ba filename
+
+This then produces a file with a .asc extension which can be uploaded.
+If you need to set the default key more permanently then edit the
+file ~/.gnupg/gpg.conf and set the default-key parameter.
+
+To verify a downloaded file using its signature file.
+
+gpg --verify filename.asc
+
+
+}}}
+= shell gpg Signing Public Keys
+==== shell gpg Signing Public Keys
+{{{
+
+Import the public key or retrieve it from a server.
+
+gpg --keyserver <keyserver> --recv-keys <Key_ID>
+
+Check its fingerprint against any previously stated value.
+
+gpg --fingerprint <Key_ID>
+
+Sign the key.
+
+gpg --sign-key <Key_ID>
+
+Upload the signed key to a server.
+
+gpg --keyserver <keyserver> --send-key <Key_ID>
+
+
+}}}
+= shell gpg Change the email address associated with a GPG key
+==== shell gpg Change the email address associated with a GPG key
+{{{
+
+gpg --edit-key <key ID>
+adduid
+
+Enter the new name and email address. You can then list the addresses with:
+
+list
+
+If you want to delete a previous email address first select it:
+
+uid <list number>
+
+Then delete it with:
+
+deluid
+
+To finish type:
+
+save
+
+Publish the key to a server:
+
+gpg --send-keys <key ID>
+
+
+}}}
+= shell gpg Creating Subkeys
+==== shell gpg Creating Subkeys
+{{{
+
+Subkeys can be useful if you don't wish to have your main GPG key
+installed on multiple machines. In this way you can keep your
+master key safe and have subkeys with expiry periods or which may be
+separately revoked installed on various machines. This avoids
+generating entirely separate keys and so breaking any web of trust
+which has been established.
+
+gpg --edit-key <key ID>
+
+At the prompt type:
+
+addkey
+
+Choose RSA (sign only), 4096 bits and select an expiry period.
+Entropy will be gathered.
+
+At the prompt type:
+
+save
+
+You can also repeat the procedure, but selecting RSA (encrypt only).
+To remove the master key, leaving only the subkey/s in place:
+
+gpg --export-secret-subkeys <subkey ID> > subkeys
+gpg --export <key ID> > pubkeys
+gpg --delete-secret-key <key ID>
+
+Import the keys back.
+
+gpg --import pubkeys subkeys
+
+Verify the import.
+
+gpg -K
+
+Should show sec# instead of just sec.
+
+}}}
+= shell grep Basic:
+==== shell grep Basic:
+{{{
+grep pattern file
+
+
+}}}
+= shell grep case nonsensitive research:
+==== shell grep case nonsensitive research:
+{{{
+grep -i pattern file
+
+
+}}}
+= shell grep Recursively grep for string <pattern> in folder:
+==== shell grep Recursively grep for string <pattern> in folder:
+{{{
+grep -R pattern folder
+
+
+}}}
+= shell grep Getting pattern from file (one by line):
+==== shell grep Getting pattern from file (one by line):
+{{{
+grep -f pattern_file file
+
+
+}}}
+= shell grep Find lines NOT containing pattern
+==== shell grep Find lines NOT containing pattern
+{{{
+grep -v pattern file
+
+
+}}}
+= shell grep You can grep with regular expressions
+==== shell grep You can grep with regular expressions
+{{{
+grep "^00" file #Match lines starting with 00
+grep -E "[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}" file #Find IP add
+
+
+}}}
+= shell grep Find all files who contain {pattern} in the directory {directory}.
+==== shell grep Find all files who contain {pattern} in the directory {directory}.
+{{{
+
+}}}
+= shell grep This will show: "file:line my research"
+==== shell grep This will show: "file:line my research"
+{{{
+grep -rnw 'directory' -e "pattern"
+
+
+}}}
+= shell grep Exclude grep from your grepped output of ps.
+==== shell grep Exclude grep from your grepped output of ps.
+{{{
+
+}}}
+= shell grep Add [] to the first letter. Ex: sshd -> [s]shd
+==== shell grep Add [] to the first letter. Ex: sshd -> [s]shd
+{{{
+ps aux | grep '[h]ttpd'
+
+}}}
+= shell gs To reduce the size of a pdf file:
+==== shell gs To reduce the size of a pdf file:
+{{{
+gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=output.pdf input.pdf
+
+
+}}}
+= shell head To show the first 10 lines of file
+==== shell head To show the first 10 lines of file
+{{{
+head file
+
+
+}}}
+= shell head To show the first N lines of file
+==== shell head To show the first N lines of file
+{{{
+head -n N file
+
+
+}}}
+= shell head To show the first N bytes of file
+==== shell head To show the first N bytes of file
+{{{
+head -c N file
+
+}}}
+= shell history To see most used top 10 commands:
+==== shell history To see most used top 10 commands:
+{{{
+history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10
+
+}}}
+= shell hub clone your own project
+==== shell hub clone your own project
+{{{
+$ git clone dotfiles
+? git clone git://github.com/YOUR_USER/dotfiles.git
+
+
+}}}
+= shell hub clone another project
+==== shell hub clone another project
+{{{
+$ git clone github/hub
+? git clone git://github.com/github/hub.git
+
+
+}}}
+= shell hub see the current project's issues
+==== shell hub see the current project's issues
+{{{
+$ git browse -- issues
+? open https://github.com/github/hub/issues
+
+
+}}}
+= shell hub open another project's wiki
+==== shell hub open another project's wiki
+{{{
+$ git browse mojombo/jekyll wiki
+? open https://github.com/mojombo/jekyll/wiki
+
+
+}}}
+= shell hub# Example workflow for contributing to a project:
+==== shell hub# Example workflow for contributing to a project:
+{{{
+$ git clone github/hub
+$ cd hub
+
+}}}
+= shell hub create a topic branch
+==== shell hub create a topic branch
+{{{
+$ git checkout -b feature
+? ( making changes ... )
+$ git commit -m "done with feature"
+
+}}}
+= shell hub It's time to fork the repo!
+==== shell hub It's time to fork the repo!
+{{{
+$ git fork
+? (forking repo on GitHub...)
+? git remote add YOUR_USER git://github.com/YOUR_USER/hub.git
+
+}}}
+= shell hub push the changes to your new remote
+==== shell hub push the changes to your new remote
+{{{
+$ git push YOUR_USER feature
+
+}}}
+= shell hub open a pull request for the topic branch you've just pushed
+==== shell hub open a pull request for the topic branch you've just pushed
+{{{
+$ git pull-request
+? (opens a text editor for your pull request message)
+
+
+
+}}}
+= shell hub fetch from multiple trusted forks, even if they don't yet exist as remotes
+==== shell hub fetch from multiple trusted forks, even if they don't yet exist as remotes
+{{{
+$ git fetch mislav,cehoffman
+? git remote add mislav git://github.com/mislav/hub.git
+? git remote add cehoffman git://github.com/cehoffman/hub.git
+? git fetch --multiple mislav cehoffman
+
+
+}}}
+= shell hub check out a pull request for review
+==== shell hub check out a pull request for review
+{{{
+$ git checkout https://github.com/github/hub/pull/134
+? (creates a new branch with the contents of the pull request)
+
+
+}}}
+= shell hub directly apply all commits from a pull request to the current branch
+==== shell hub directly apply all commits from a pull request to the current branch
+{{{
+$ git am -3 https://github.com/github/hub/pull/134
+
+
+}}}
+= shell hub cherry-pick a GitHub URL
+==== shell hub cherry-pick a GitHub URL
+{{{
+$ git cherry-pick https://github.com/xoebus/hub/commit/177eeb8
+? git remote add xoebus git://github.com/xoebus/hub.git
+? git fetch xoebus
+? git cherry-pick 177eeb8
+
+
+}}}
+= shell hub `am` can be better than cherry-pick since it doesn't create a remote
+==== shell hub `am` can be better than cherry-pick since it doesn't create a remote
+{{{
+$ git am https://github.com/xoebus/hub/commit/177eeb8
+
+
+}}}
+= shell hub open the GitHub compare view between two releases
+==== shell hub open the GitHub compare view between two releases
+{{{
+$ git compare v0.9..v1.0
+
+
+}}}
+= shell hub put compare URL for a topic branch to clipboard
+==== shell hub put compare URL for a topic branch to clipboard
+{{{
+$ git compare -u feature | pbcopy
+
+
+}}}
+= shell hub create a repo for a new project
+==== shell hub create a repo for a new project
+{{{
+$ git init
+$ git add . && git commit -m "It begins."
+$ git create -d "My new thing"
+? (creates a new project on GitHub with the name of current directory)
+$ git push origin master
+
+}}}
+= shell ifconfig Display network settings of the first ethernet adapter
+==== shell ifconfig Display network settings of the first ethernet adapter
+{{{
+ifconfig wlan0
+
+
+}}}
+= shell ifconfig Display all interfaces, even if down
+==== shell ifconfig Display all interfaces, even if down
+{{{
+ifconfig -a
+
+
+}}}
+= shell ifconfig Take down / up the wireless adapter
+==== shell ifconfig Take down / up the wireless adapter
+{{{
+ifconfig wlan0 {up|down}
+
+
+}}}
+= shell ifconfig Set a static IP and netmask
+==== shell ifconfig Set a static IP and netmask
+{{{
+ifconfig eth0 192.168.1.100 netmask 255.255.255.0
+
+
+}}}
+= shell ifconfig You may also need to add a gateway IP
+==== shell ifconfig You may also need to add a gateway IP
+{{{
+route add -net 192.168.1.0 netmask 255.255.255.0 gw 192.168.1.1
+
+}}}
+= shell indent format C/C++ source according to the style of Kernighan and Ritchie (K&R), no tabs, 3 spaces per indent, wrap lines at 120 characters.
+==== shell indent format C/C++ source according to the style of Kernighan and Ritchie (K&R), no tabs, 3 spaces per indent, wrap lines at 120 characters.
+{{{
+indent -i3 -kr -nut -l120
+
+}}}
+= shell ip Display all interfaces with addresses
+==== shell ip Display all interfaces with addresses
+{{{
+ip addr
+
+
+}}}
+= shell ip Take down / up the wireless adapter
+==== shell ip Take down / up the wireless adapter
+{{{
+ip link set dev wlan0 {up|down}
+
+
+}}}
+= shell ip Set a static IP and netmask
+==== shell ip Set a static IP and netmask
+{{{
+ip addr add 192.168.1.100/32 dev eth0
+
+
+}}}
+= shell ip Remove a IP from an interface
+==== shell ip Remove a IP from an interface
+{{{
+ip addr del 192.168.1.100/32 dev eth0
+
+
+}}}
+= shell ip Remove all IPs from an interface
+==== shell ip Remove all IPs from an interface
+{{{
+ip address flush dev eth0
+
+
+}}}
+= shell ip Display all routes
+==== shell ip Display all routes
+{{{
+ip route
+
+
+}}}
+= shell ip Display all routes for IPv6
+==== shell ip Display all routes for IPv6
+{{{
+ip -6 route
+
+
+}}}
+= shell ip Add route via gateway IP
+==== shell ip Add route via gateway IP
+{{{
+ip route add 192.168.0.0/24 via 192.168.1.1
+
+
+}}}
+= shell ip Add route via interface
+==== shell ip Add route via interface
+{{{
+ip route add 192.168.0.0/24 dev eth0
+
+
+}}}
+= shell ip Change your mac address
+==== shell ip Change your mac address
+{{{
+ip link set dev eth0 address aa:bb:cc:dd:ee:ff
+
+
+}}}
+= shell ip View neighbors (using ARP and NDP)
+==== shell ip View neighbors (using ARP and NDP)
+{{{
+ip neighbor show
+
+}}}
+= shell iptables Show hit for rules with auto refresh
+==== shell iptables Show hit for rules with auto refresh
+{{{
+watch --interval 0 'iptables -nvL | grep -v "0 0"'
+
+
+}}}
+= shell iptables Show hit for rule with auto refresh and highlight any changes since the last refresh
+==== shell iptables Show hit for rule with auto refresh and highlight any changes since the last refresh
+{{{
+watch -d -n 2 iptables -nvL
+
+
+}}}
+= shell iptables Block the port 902 and we hide this port from nmap.
+==== shell iptables Block the port 902 and we hide this port from nmap.
+{{{
+iptables -A INPUT -i eth0 -p tcp --dport 902 -j REJECT --reject-with icmp-port-unreachable
+
+# Note, --reject-with accept:
+# icmp-net-unreachable
+# icmp-host-unreachable
+# icmp-port-unreachable <- Hide a port to nmap
+# icmp-proto-unreachable
+# icmp-net-prohibited
+# icmp-host-prohibited or
+# icmp-admin-prohibited
+# tcp-reset
+
+
+}}}
+= shell iptables Add a comment to a rule:
+==== shell iptables Add a comment to a rule:
+{{{
+iptables ... -m comment --comment "This rule is here for this reason"
+
+
+
+}}}
+= shell iptables To remove or insert a rule:
+==== shell iptables To remove or insert a rule:
+{{{
+
+# 1) Show all rules
+iptables -L INPUT --line-numbers
+# OR iptables -nL --line-numbers
+# Chain INPUT (policy ACCEPT)
+# num target prot opt source destination
+# 1 ACCEPT udp -- anywhere anywhere udp dpt:domain
+# 2 ACCEPT tcp -- anywhere anywhere tcp dpt:domain
+# 3 ACCEPT udp -- anywhere anywhere udp dpt:bootps
+# 4 ACCEPT tcp -- anywhere anywhere tcp dpt:bootps
+# 2.a) REMOVE (-D) a rule. (here an INPUT rule)
+iptables -D INPUT 2
+# 2.b) OR INSERT a rule.
+iptables -I INPUT {LINE_NUMBER} -i eth1 -p tcp --dport 21 -s 123.123.123.123 -j ACCEPT -m comment --comment "This rule is here for this reason"
+
+
+}}}
+= shell irssi To connect to an IRC server
+==== shell irssi To connect to an IRC server
+{{{
+/connect <server domain name>
+
+
+}}}
+= shell irssi To join a channel
+==== shell irssi To join a channel
+{{{
+/join #<channel name>
+
+
+}}}
+= shell irssi To set a nickname
+==== shell irssi To set a nickname
+{{{
+/nick <my nickname>
+
+
+}}}
+= shell irssi To send a private message to a user
+==== shell irssi To send a private message to a user
+{{{
+/msg <nickname>
+
+
+}}}
+= shell irssi To close the current channel window
+==== shell irssi To close the current channel window
+{{{
+/wc
+
+
+}}}
+= shell irssi To switch between channel windows
+==== shell irssi To switch between channel windows
+{{{
+ALT+<number>, eg. ALT+1, ALT+2
+
+
+}}}
+= shell irssi To list the nicknames within a channel
+==== shell irssi To list the nicknames within a channel
+{{{
+/names
+
+
+}}}
+= shell irssi To change the topic
+==== shell irssi To change the topic
+{{{
+/topic <description>
+
+
+}}}
+= shell irssi To quit irssi
+==== shell irssi To quit irssi
+{{{
+/exit
+
+}}}
+= shell iwconfig Display wireless settings of the first wireless adapter
+==== shell iwconfig Display wireless settings of the first wireless adapter
+{{{
+iwconfig wlan0
+
+
+}}}
+= shell iwconfig Take down / up the wireless adapter
+==== shell iwconfig Take down / up the wireless adapter
+{{{
+iwconfig wlan0 txpower {on|auto|off}
+
+
+}}}
+= shell iwconfig Change the mode of the wireless adapter
+==== shell iwconfig Change the mode of the wireless adapter
+{{{
+iwconfig wlan0 mode {managed|ad-hoc|monitor}
+
+}}}
+= shell journalctl Actively follow log (like tail -f)
+==== shell journalctl Actively follow log (like tail -f)
+{{{
+journalctl -f
+
+
+}}}
+= shell journalctl Display all errors since last boot
+==== shell journalctl Display all errors since last boot
+{{{
+journalctl -b -p err
+
+
+}}}
+= shell journalctl Filter by time period
+==== shell journalctl Filter by time period
+{{{
+journalctl --since=2012-10-15 --until="2011-10-16 23:59:59"
+
+
+}}}
+= shell journalctl Show list of systemd units logged in journal
+==== shell journalctl Show list of systemd units logged in journal
+{{{
+journalctl -F _SYSTEMD_UNIT
+
+
+}}}
+= shell journalctl Filter by specific unit
+==== shell journalctl Filter by specific unit
+{{{
+journalctl -u dbus
+
+
+}}}

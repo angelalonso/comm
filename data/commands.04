@@ -1,0 +1,1004 @@
+= shell sam2p Concatenate all pdf files into one:
+==== shell sam2p Concatenate all pdf files into one:
+{{{
+sam2p *.pdf out.pdf
+
+}}}
+= shell scp To copy a file from your local machine to a remote server:
+==== shell scp To copy a file from your local machine to a remote server:
+{{{
+scp foo.txt user@example.com:remote/dir
+
+
+}}}
+= shell scp To copy a file from a remote server to your local machine:
+==== shell scp To copy a file from a remote server to your local machine:
+{{{
+scp user@example.com:remote/dir/foo.txt local/dir
+
+}}}
+= shell screen Start a new named screen session:
+==== shell screen Start a new named screen session:
+{{{
+screen -S session_name
+
+
+}}}
+= shell screen Detach from the current session:
+==== shell screen Detach from the current session:
+{{{
+Press Ctrl+A then press d
+
+
+}}}
+= shell screen Re-attach a detached session:
+==== shell screen Re-attach a detached session:
+{{{
+screen -r session_name
+
+
+}}}
+= shell screen List all screen sessions:
+==== shell screen List all screen sessions:
+{{{
+screen -ls
+
+}}}
+= shell sed To replace all occurrences of "day" with "night" and write to stdout:
+==== shell sed To replace all occurrences of "day" with "night" and write to stdout:
+{{{
+sed 's/day/night/g' file.txt
+
+
+}}}
+= shell sed To replace all occurrences of "day" with "night" within file.txt:
+==== shell sed To replace all occurrences of "day" with "night" within file.txt:
+{{{
+sed -i 's/day/night/g' file.txt
+
+
+}}}
+= shell sed To replace all occurrences of "day" with "night" on stdin:
+==== shell sed To replace all occurrences of "day" with "night" on stdin:
+{{{
+echo 'It is daytime' | sed 's/day/night/g'
+
+
+}}}
+= shell sed To remove leading spaces
+==== shell sed To remove leading spaces
+{{{
+sed -i -r 's/^s+//g' file.txt
+
+
+}}}
+= shell sed Remove empty lines and print results to stdout:
+==== shell sed Remove empty lines and print results to stdout:
+{{{
+sed '/^$/d' file.txt
+
+}}}
+= shell sed use variables inside script
+==== shell sed use variables inside script
+{{{
+sed "s/blabla/$VAR/g"
+
+}}}
+= shell shred To shred a file (5 passes) and verbose output:
+==== shell shred To shred a file (5 passes) and verbose output:
+{{{
+shred -n 5 -v file.txt
+
+
+}}}
+= shell shred To shred a file (5 passes) and a final overwrite of zeroes:
+==== shell shred To shred a file (5 passes) and a final overwrite of zeroes:
+{{{
+shred -n 5 -vz file.txt
+
+
+}}}
+= shell shred To do the above, and then truncate and rm the file:
+==== shell shred To do the above, and then truncate and rm the file:
+{{{
+shred -n 5 -vzu file.txt
+
+
+}}}
+= shell shred To shred a partition:
+==== shell shred To shred a partition:
+{{{
+shred -n 5 -vz /dev/sda
+
+
+}}}
+= shell shred Remember that shred may not behave as expected on journaled file systems if file data is being journaled.
+==== shell shred Remember that shred may not behave as expected on journaled file systems if file data is being journaled.
+{{{
+
+}}}
+= shell sockstat To view which users/processes are listening to which ports:
+==== shell sockstat To view which users/processes are listening to which ports:
+{{{
+sudo sockstat -l
+
+}}}
+= shell sort To sort a file:
+==== shell sort To sort a file:
+{{{
+sort file
+
+
+}}}
+= shell sort To sort a file by keeping only unique:
+==== shell sort To sort a file by keeping only unique:
+{{{
+sort -u file
+
+
+}}}
+= shell sort To sort a file and reverse the result:
+==== shell sort To sort a file and reverse the result:
+{{{
+sort -r file
+
+
+}}}
+= shell sort To sort a file randomly:
+==== shell sort To sort a file randomly:
+{{{
+sort -R file
+
+}}}
+= shell split To split a large text file into smaller files of 1000 lines each:
+==== shell split To split a large text file into smaller files of 1000 lines each:
+{{{
+split file.txt -l 1000
+
+
+}}}
+= shell split To split a large binary file into smaller files of 10M each:
+==== shell split To split a large binary file into smaller files of 10M each:
+{{{
+split file.txt -b 10M
+
+
+}}}
+= shell split To consolidate split files into a single file:
+==== shell split To consolidate split files into a single file:
+{{{
+cat x* > file.txt
+
+}}}
+= shell sqlmap Test URL and POST data and return database banner (if possible)
+==== shell sqlmap Test URL and POST data and return database banner (if possible)
+{{{
+./sqlmap.py --url="<url>" --data="<post-data>" --banner
+
+
+}}}
+= shell sqlmap Parse request data and test | request data can be obtained with burp
+==== shell sqlmap Parse request data and test | request data can be obtained with burp
+{{{
+./sqlmap.py -r <request-file> <options>
+
+
+}}}
+= shell sqlmap Fingerprint | much more information than banner
+==== shell sqlmap Fingerprint | much more information than banner
+{{{
+./sqlmap.py -r <request-file> --fingerprint
+
+
+}}}
+= shell sqlmap Get database username, name, and hostname
+==== shell sqlmap Get database username, name, and hostname
+{{{
+./sqlmap.py -r <request-file> --current-user --current-db --hostname
+
+
+}}}
+= shell sqlmap Check if user is a database admin
+==== shell sqlmap Check if user is a database admin
+{{{
+./sqlmap.py -r <request-file> --is-dba
+
+
+}}}
+= shell sqlmap Get database users and password hashes
+==== shell sqlmap Get database users and password hashes
+{{{
+./sqlmap.py -r <request-file> --users --passwords
+
+
+}}}
+= shell sqlmap Enumerate databases
+==== shell sqlmap Enumerate databases
+{{{
+./sqlmap.py -r <request-file> --dbs
+
+
+}}}
+= shell sqlmap List tables for one database
+==== shell sqlmap List tables for one database
+{{{
+./sqlmap.py -r <request-file> -D <db-name> --tables
+
+
+}}}
+= shell sqlmap Other database commands
+==== shell sqlmap Other database commands
+{{{
+./sqlmap.py -r <request-file> -D <db-name> --columns
+--schema
+--count
+
+}}}
+= shell sqlmap Enumeration flags
+==== shell sqlmap Enumeration flags
+{{{
+./sqlmap.py -r <request-file> -D <db-name>
+-T <tbl-name>
+-C <col-name>
+-U <user-name>
+
+
+}}}
+= shell sqlmap Extract data
+==== shell sqlmap Extract data
+{{{
+./sqlmap.py -r <request-file> -D <db-name> -T <tbl-name> -C <col-name> --dump
+
+
+}}}
+= shell sqlmap Execute SQL Query
+==== shell sqlmap Execute SQL Query
+{{{
+./sqlmap.py -r <request-file> --sql-query="<sql-query>"
+
+
+}}}
+= shell sqlmap Append/Prepend SQL Queries
+==== shell sqlmap Append/Prepend SQL Queries
+{{{
+./sqlmap.py -r <request-file> --prefix="<sql-query>" --suffix="<sql-query>"
+
+
+}}}
+= shell sqlmap Get backdoor access to sql server | can give shell access
+==== shell sqlmap Get backdoor access to sql server | can give shell access
+{{{
+./sqlmap.py -r <request-file> --os-shell
+
+}}}
+= shell ssh To ssh via pem file (which normally needs 0600 permissions):
+==== shell ssh To ssh via pem file (which normally needs 0600 permissions):
+{{{
+ssh -i /path/to/file.pem user@example.com
+
+
+}}}
+= shell ssh To connect on an non-standard port:
+==== shell ssh To connect on an non-standard port:
+{{{
+ssh -p 2222 user@example.com
+
+
+}}}
+= shell ssh To execute a command on a remote server:
+==== shell ssh To execute a command on a remote server:
+{{{
+ssh -t user@example.com 'the-remote-command'
+
+
+}}}
+= shell ssh To tunnel an x session over SSH:
+==== shell ssh To tunnel an x session over SSH:
+{{{
+ssh -X user@example.com
+
+
+}}}
+= shell ssh To launch a specific x application over SSH:
+==== shell ssh To launch a specific x application over SSH:
+{{{
+ssh -X -t user@example.com 'chromium-browser'
+
+
+}}}
+= shell ssh To create a SOCKS proxy on localhost and port 9999
+==== shell ssh To create a SOCKS proxy on localhost and port 9999
+{{{
+ssh -D 9999 user@example.com
+
+
+}}}
+= shell ssh -X use an xsession, -C compress data, "-c blowfish" use the encryption blowfish
+==== shell ssh -X use an xsession, -C compress data, "-c blowfish" use the encryption blowfish
+{{{
+ssh user@example.com -C -c blowfish -X
+
+
+}}}
+= shell ssh For more information, see:
+==== shell ssh For more information, see:
+{{{
+
+}}}
+= shell ssh http://unix.stackexchange.com/q/12755/44856
+==== shell ssh http://unix.stackexchange.com/q/12755/44856
+{{{
+
+}}}
+= shell ssh-copy-id To copy a key to a remote host:
+==== shell ssh-copy-id To copy a key to a remote host:
+{{{
+ssh-copy-id username@host
+
+
+}}}
+= shell ssh-copy-id To copy a key to a remote host on a non-standard port:
+==== shell ssh-copy-id To copy a key to a remote host on a non-standard port:
+{{{
+ssh-copy-id username@host -p 2222
+
+
+}}}
+= shell ssh-copy-id To copy a key to a remote host on a non-standard port with non-standard ssh key:
+==== shell ssh-copy-id To copy a key to a remote host on a non-standard port with non-standard ssh key:
+{{{
+ssh-copy-id ~/.ssh/otherkey "username@host -p 2222"
+
+}}}
+= shell ssh-keygen To generate an SSH key:
+==== shell ssh-keygen To generate an SSH key:
+{{{
+ssh-keygen -t rsa
+
+
+}}}
+= shell ssh-keygen To generate a 4096-bit SSH key:
+==== shell ssh-keygen To generate a 4096-bit SSH key:
+{{{
+ssh-keygen -t rsa -b 4096
+
+
+}}}
+= shell ssh-keygen To update a passphrase on a key
+==== shell ssh-keygen To update a passphrase on a key
+{{{
+ssh-keygen -p -P old_passphrase -N new_passphrase -f /path/to/keyfile
+
+
+}}}
+= shell ssh-keygen To remove a passphrase on a key
+==== shell ssh-keygen To remove a passphrase on a key
+{{{
+ssh-keygen -p -P old_passphrase -N '' -f /path/to/keyfile
+
+
+}}}
+= shell ssh-keygen To generate a 4096 bit RSA key with a passphase and comment containing the user and hostname
+==== shell ssh-keygen To generate a 4096 bit RSA key with a passphase and comment containing the user and hostname
+{{{
+ssh-keygen -t rsa -b 4096 -C "$USER@$HOSTNAME" -P passphrase
+
+}}}
+= shell stdout To redirect stderr to stdout:
+==== shell stdout To redirect stderr to stdout:
+{{{
+some-command 2>&1
+
+
+}}}
+= shell stdout To redirect stderr to a file
+==== shell stdout To redirect stderr to a file
+{{{
+some-command 2> errors.txt
+
+}}}
+= shell strace Basic stracing
+==== shell strace Basic stracing
+{{{
+strace <command>
+
+
+}}}
+= shell strace save the trace to a file
+==== shell strace save the trace to a file
+{{{
+strace -o strace.out <other switches> <command>
+
+
+}}}
+= shell strace follow only the open() system call
+==== shell strace follow only the open() system call
+{{{
+strace -e trace=open <command>
+
+
+}}}
+= shell strace follow all the system calls which open a file
+==== shell strace follow all the system calls which open a file
+{{{
+strace -e trace=file <command>
+
+
+}}}
+= shell strace management
+==== shell strace management
+{{{
+strace -e trace=process <command>
+
+
+}}}
+= shell strace follow child processes as they are created
+==== shell strace follow child processes as they are created
+{{{
+strace -f <command>
+
+
+}}}
+= shell strace count time, calls and errors for each system call
+==== shell strace count time, calls and errors for each system call
+{{{
+strace -c <command>
+
+
+}}}
+= shell strace trace a running process (multiple PIDs can be specified)
+==== shell strace trace a running process (multiple PIDs can be specified)
+{{{
+strace -p <pid>
+}}}
+= shell systemctl List all loaded/active units
+==== shell systemctl List all loaded/active units
+{{{
+systemctl list-units
+
+
+}}}
+= shell systemctl Check the status of a service
+==== shell systemctl Check the status of a service
+{{{
+systemctl status foo.service
+
+
+}}}
+= shell systemctl Start a service
+==== shell systemctl Start a service
+{{{
+systemctl start foo.service
+
+
+}}}
+= shell systemctl Restart a service
+==== shell systemctl Restart a service
+{{{
+systemctl restart foo.service
+
+
+}}}
+= shell systemctl Stop a service
+==== shell systemctl Stop a service
+{{{
+systemctl stop foo.service
+
+
+}}}
+= shell systemctl Reload a service's configuration
+==== shell systemctl Reload a service's configuration
+{{{
+systemctl reload foo.service
+
+
+}}}
+= shell systemctl Enable a service to startup on boot
+==== shell systemctl Enable a service to startup on boot
+{{{
+systemctl enable foo.service
+
+
+}}}
+= shell systemctl Disable a service to startup on boot
+==== shell systemctl Disable a service to startup on boot
+{{{
+systemctl disable foo.service
+
+
+}}}
+= shell systemctl List the dependencies of a service
+==== shell systemctl List the dependencies of a service
+{{{
+
+}}}
+= shell systemctl when no service name is specified, lists the dependencies of default.target
+==== shell systemctl when no service name is specified, lists the dependencies of default.target
+{{{
+systemctl list-dependencies foo.service
+
+
+}}}
+= shell systemctl List currently loaded targets
+==== shell systemctl List currently loaded targets
+{{{
+systemctl list-units --type=target
+
+
+}}}
+= shell systemctl Change current target
+==== shell systemctl Change current target
+{{{
+systemctl isolate foo.target
+
+
+}}}
+= shell systemctl Change default target
+==== shell systemctl Change default target
+{{{
+systemctl enable foo.target
+
+}}}
+= shell tail To show the last 10 lines of file
+==== shell tail To show the last 10 lines of file
+{{{
+tail file
+
+
+}}}
+= shell tail To show the last N lines of file
+==== shell tail To show the last N lines of file
+{{{
+tail -n N file
+
+
+}}}
+= shell tail To show the last lines of file starting with the Nth
+==== shell tail To show the last lines of file starting with the Nth
+{{{
+tail -n +N file
+
+
+}}}
+= shell tail To show the last N bytes of file
+==== shell tail To show the last N bytes of file
+{{{
+tail -c N file
+
+
+}}}
+= shell tail To show the last 10 lines of file and to wait for file to grow
+==== shell tail To show the last 10 lines of file and to wait for file to grow
+{{{
+tail -f file
+
+}}}
+= shell tar To extract an uncompressed archive:
+==== shell tar To extract an uncompressed archive:
+{{{
+tar -xvf /path/to/foo.tar
+
+
+}}}
+= shell tar To create an uncompressed archive:
+==== shell tar To create an uncompressed archive:
+{{{
+tar -cvf /path/to/foo.tar /path/to/foo/
+
+
+}}}
+= shell tar To extract a .gz archive:
+==== shell tar To extract a .gz archive:
+{{{
+tar -xzvf /path/to/foo.tgz
+
+
+}}}
+= shell tar To create a .gz archive:
+==== shell tar To create a .gz archive:
+{{{
+tar -czvf /path/to/foo.tgz /path/to/foo/
+
+
+}}}
+= shell tar To list the content of an .gz archive:
+==== shell tar To list the content of an .gz archive:
+{{{
+tar -ztvf /path/to/foo.tgz
+
+
+}}}
+= shell tar To extract a .bz2 archive:
+==== shell tar To extract a .bz2 archive:
+{{{
+tar -xjvf /path/to/foo.tgz
+
+
+}}}
+= shell tar To create a .bz2 archive:
+==== shell tar To create a .bz2 archive:
+{{{
+tar -cjvf /path/to/foo.tgz /path/to/foo/
+
+
+}}}
+= shell tar To list the content of an .bz2 archive:
+==== shell tar To list the content of an .bz2 archive:
+{{{
+tar -jtvf /path/to/foo.tgz
+
+
+}}}
+= shell tar To create a .gz archive and exclude all jpg,gif,... from the tgz
+==== shell tar To create a .gz archive and exclude all jpg,gif,... from the tgz
+{{{
+tar czvf /path/to/foo.tgz --exclude=*.{jpg,gif,png,wmv,flv,tar.gz,zip} /path/to/foo/
+
+}}}
+= shell tcpdump Intercepts all packets on eth0
+==== shell tcpdump Intercepts all packets on eth0
+{{{
+tcpdump -i eth0
+
+
+}}}
+= shell tcpdump Intercepts all packets from/to 173.194.40.120
+==== shell tcpdump Intercepts all packets from/to 173.194.40.120
+{{{
+tcpdump host 173.194.40.120
+
+
+}}}
+= shell tcpdump Intercepts all packets on all interfaces from / to 173.194.40.120 port 80
+==== shell tcpdump Intercepts all packets on all interfaces from / to 173.194.40.120 port 80
+{{{
+=> Disables name resolution for IP addresses and port numbers.tcpdump -nn -i any host 173.194.40.120 and port 80
+
+
+}}}
+= shell tcpdump Make a grep on tcpdump (ASCII)
+==== shell tcpdump Make a grep on tcpdump (ASCII)
+{{{
+-A => Show only ASCII in packets.
+-s0 => By default, tcpdump only captures 68 bytes.
+tcpdump -i -A any host 173.194.40.120 and port 80 | grep 'User-Agent'
+
+
+}}}
+= shell tcpdump With ngrep
+==== shell tcpdump With ngrep
+{{{
+-d eth0 => To force eth0 (else ngrep work on all interfaces)
+-s0 => force ngrep to look at the entire packet. (Default snaplen: 65536 bytes)
+ngrep 'User-Agent' host 173.194.40.120 and port 80
+
+
+}}}
+= shell tcpdump Intercepts all packets on all interfaces from / to 8.8.8.8 or 173.194.40.127 on port 80
+==== shell tcpdump Intercepts all packets on all interfaces from / to 8.8.8.8 or 173.194.40.127 on port 80
+{{{
+tcpdump 'host ( 8.8.8.8 or 173.194.40.127 ) and port 80' -i any
+
+
+}}}
+= shell tcpdump Intercepts all packets SYN and FIN of each TCP session.
+==== shell tcpdump Intercepts all packets SYN and FIN of each TCP session.
+{{{
+tcpdump 'tcp[tcpflags] & (tcp-syn|tcp-fin) != 0'
+
+
+}}}
+= shell tcpdump To display SYN and FIN packets of each TCP session to a host that is not on our network
+==== shell tcpdump To display SYN and FIN packets of each TCP session to a host that is not on our network
+{{{
+tcpdump 'tcp[tcpflags] & (tcp-syn|tcp-fin) != 0 and not src and dst net local_addr'
+
+
+}}}
+= shell tcpdump To display all IPv4 HTTP packets that come or arrive on port 80 and that contain only data (no SYN, FIN no, no packet containing an ACK)
+==== shell tcpdump To display all IPv4 HTTP packets that come or arrive on port 80 and that contain only data (no SYN, FIN no, no packet containing an ACK)
+{{{
+tcpdump 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'
+
+
+}}}
+= shell tcpdump Saving captured data
+==== shell tcpdump Saving captured data
+{{{
+tcpdump -w file.cap
+
+
+}}}
+= shell tcpdump Reading from capture file
+==== shell tcpdump Reading from capture file
+{{{
+tcpdump -r file.cap
+
+
+}}}
+= shell tcpdump Show content in hexa
+==== shell tcpdump Show content in hexa
+{{{
+Change -x to -xx => show extra header (ethernet).
+tcpdump -x
+
+
+}}}
+= shell tcpdump Show content in hexa and ASCII
+==== shell tcpdump Show content in hexa and ASCII
+{{{
+Change -X to -XX => show extra header (ethernet).
+tcpdump -X
+
+
+}}}
+= shell tcpdump Note on packet maching:
+==== shell tcpdump Note on packet maching:
+{{{
+# Port matching:
+# - portrange 22-23
+# - not port 22
+# - port ssh
+# - dst port 22
+# - src port 22
+#
+# Host matching:
+# - dst host 8.8.8.8
+# - not dst host 8.8.8.8
+# - src net 67.207.148.0 mask 255.255.255.0
+# - src net 67.207.148.0/24
+
+}}}
+= shell tee To tee stdout to a file:
+==== shell tee To tee stdout to a file:
+{{{
+ls | tee outfile.txt
+
+
+}}}
+= shell tee To tee stdout and append to a file:
+==== shell tee To tee stdout and append to a file:
+{{{
+ls | tee -a outfile.txt
+
+}}}
+= shell tmux Start tmux:
+==== shell tmux Start tmux:
+{{{
+tmux
+
+
+}}}
+= shell tmux Detach from tmux:
+==== shell tmux Detach from tmux:
+{{{
+Ctrl-b d
+
+
+}}}
+= shell tmux Restore tmux session:
+==== shell tmux Restore tmux session:
+{{{
+tmux attach
+
+
+}}}
+= shell tmux Detach an already attached session (great if you are moving devices with different screen resolutions)
+==== shell tmux Detach an already attached session (great if you are moving devices with different screen resolutions)
+{{{
+tmux attach -d
+
+
+}}}
+= shell tmux Display session:
+==== shell tmux Display session:
+{{{
+tmux ls
+
+
+}}}
+= shell tmux Start a shared session:
+==== shell tmux Start a shared session:
+{{{
+tmux -S /tmp/your_shared_session
+chmod 777 /tmp/your_shared_session
+
+
+}}}
+= shell tmux Help screen (Q to quit):
+==== shell tmux Help screen (Q to quit):
+{{{
+Ctrl-b ?
+
+
+}}}
+= shell tmux Scroll in window:
+==== shell tmux Scroll in window:
+{{{
+Ctrl-b PageUp/PageDown
+
+
+}}}
+= shell tmux Reload configuation file
+==== shell tmux Reload configuation file
+{{{
+Ctrl-b : source-file /path/to/file
+
+}}}
+= shell tmux Create window:
+==== shell tmux Create window:
+{{{
+Ctrl-b c
+
+
+}}}
+= shell tmux Destroy window:
+==== shell tmux Destroy window:
+{{{
+Ctrl-b x
+
+
+}}}
+= shell tmux Switch between windows:
+==== shell tmux Switch between windows:
+{{{
+Ctrl-b [0-9]
+or
+Ctrl-b Arrows
+
+
+}}}
+= shell tmux Split windows horizontally:
+==== shell tmux Split windows horizontally:
+{{{
+Ctrl-b %
+
+
+}}}
+= shell tmux Split windows vertically:
+==== shell tmux Split windows vertically:
+{{{
+Ctrl-b "
+
+}}}
+= shell top Update every <interval> samples:
+==== shell top Update every <interval> samples:
+{{{
+top -i <interval>
+
+
+}}}
+= shell top Set the delay between updates to <delay> seconds:
+==== shell top Set the delay between updates to <delay> seconds:
+{{{
+top -s <delay>
+
+
+}}}
+= shell top Set event counting to accumulative mode:
+==== shell top Set event counting to accumulative mode:
+{{{
+top -a
+
+
+}}}
+= shell top Set event counting to delta mode:
+==== shell top Set event counting to delta mode:
+{{{
+top -d
+
+
+}}}
+= shell top Set event counting to absolute mode:
+==== shell top Set event counting to absolute mode:
+{{{
+top -e
+
+
+}}}
+= shell top Do not calculate statistics on shared libraries, also known as frameworks:
+==== shell top Do not calculate statistics on shared libraries, also known as frameworks:
+{{{
+top -F
+
+
+}}}
+= shell top Calculate statistics on shared libraries, also known as frameworks (default):
+==== shell top Calculate statistics on shared libraries, also known as frameworks (default):
+{{{
+top -f
+
+
+}}}
+= shell top Print command line usage information and exit:
+==== shell top Print command line usage information and exit:
+{{{
+top -h
+
+
+}}}
+= shell top Order the display by sorting on <key> in descending order
+==== shell top Order the display by sorting on <key> in descending order
+{{{
+top -o <key>
+
+}}}
+= shell truncate To clear the contents from a file:
+==== shell truncate To clear the contents from a file:
+{{{
+truncate -s 0 file.txt
+
+
+}}}
+= shell truncate To truncate a file to 100 bytes:
+==== shell truncate To truncate a file to 100 bytes:
+{{{
+truncate -s 100 file.txt
+
+
+}}}
+= shell truncate To truncate a file to 100 KB:
+==== shell truncate To truncate a file to 100 KB:
+{{{
+truncate -s 100K file.txt
+(M, G, T, P, E, Z, and Y may be used in place of "K" as required.)
+
+}}}
+= shell uname Print all system information
+==== shell uname Print all system information
+{{{
+uname -a
+
+
+}}}
+= shell uname Print the hostname
+==== shell uname Print the hostname
+{{{
+uname -n
+uname system-hostname
+
+
+}}}
+= shell uname Print the kernel release
+==== shell uname Print the kernel release
+{{{
+uname -r
+
+
+
+}}}
+= shell uname Print the kernel version, with more specific information
+==== shell uname Print the kernel version, with more specific information
+{{{
+uname -v
+
+}}}
+= shell uname Print the hardware instruction set
+==== shell uname Print the hardware instruction set
+{{{
+uname -m
+
+
+
+}}}
+= shell uname Print the kernel name
+==== shell uname Print the kernel name
+{{{
+uname -s
+
+
+
+}}}
+= shell uname Print the operating system
+==== shell uname Print the operating system
+{{{
+uname -o
+
+}}}
+= shell vim File management
+==== shell vim File management
+{{{
+
+:e reload file
+:q quit
+:q! quit without saving changes

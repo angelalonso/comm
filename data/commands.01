@@ -1,0 +1,997 @@
+= for loop syntax
+==== shell script for
+{{{
+for i in {1..10}
+do
+	echo $i
+done
+}}}
+= while loop syntax
+{{{
+c=1
+while [ $c -le 5 ]
+do
+	echo "Welcone $c times"
+	(( c++ ))
+done
+}}}
+= python write to file
+==== python write file
+{{{
+ with open("foo.txt", "a") as f:
+     f.write("new line\n")
+}}}
+= shell case esac
+==== shell case switch
+{{{
+case $pattern in
+1)
+   echo "1"
+   ;;
+2)
+   echo "2"
+   ;;
+esac
+}}}
+= python tkinter window close
+==== python tkinter window close
+{{{
+def close_window (): 
+  window.destroy()
+}}}
+= ruby times loop
+==== ruby for times loop
+{{{
+5.times { |i| puts i }
+}}}
+= HTML template 
+==== HTML template doctype utf8 utf-8
+{{{
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+    <title>My Page</title>
+    <meta charset="utf-8"></meta>
+    <link rel="stylesheet" href="css/main.css" />
+</HEAD>
+<BODY>
+        <div>MY PAGE</div>
+</BODY>
+</HTML>
+
+}}}
+= shell array
+==== 
+{{{
+arr=(one two three)
+
+$ echo ${arr[0]}
+one
+}}}
+= shell while loop to read file line by line
+==== shell while line file
+{{{
+while read line           
+do           
+    command           
+done <file
+}}}
+= thanks to
+==== thanks to
+{{{
+https://github.com/chrisallenlane/cheat/blob/master/cheat/
+
+}}}
+= shell 7z args:
+==== shell 7z args:
+{{{
+a add
+d delete
+e extract
+l list
+t test
+u update
+x extract with full paths
+
+}}}
+= shell 7z example:
+==== shell 7z example:
+{{{
+7z a -t7z -m0-lzma -mx=9 -mfb=64 -md=32m -ms=on archive.7z dir1
+
+-t7z 7z archive
+-m0=lzma lzma method
+-mx=9 level of compression = 9 (ultra)
+-mfb=64 number of fast bytes for lzma = 64
+-md=32m dictionary size = 32 Mb
+-ms=on solid archive = on
+
+}}}
+= shell 7z exit codes:
+==== shell 7z exit codes:
+{{{
+0 normal (no errors or warnings)
+1 warning (non-fatal errors)
+2 fatal error
+7 bad cli arguments
+8 not enough memory for operation
+255 process was interrupted
+
+}}}
+= shell ab send 100 requests with a concurency of 50 requests to an URL
+==== shell ab send 100 requests with a concurency of 50 requests to an URL
+{{{
+ab -n 100 -c 50 http://www.example.com/
+
+
+}}}
+= shell ab send requests during 30 seconds with a concurency of 50 requests to an URL
+==== shell ab send requests during 30 seconds with a concurency of 50 requests to an URL
+{{{
+ab -t 30 -c 50 URL http://www.example.com/
+
+}}}
+= shell apk Install a package
+==== shell apk Install a package
+{{{
+apk add $package
+
+
+}}}
+= shell apk Remove a package
+==== shell apk Remove a package
+{{{
+apk del $package
+
+
+}}}
+= shell apk Update repos
+==== shell apk Update repos
+{{{
+apk update
+
+}}}
+= shell apk Upgrade all packages
+==== shell apk Upgrade all packages
+{{{
+apk upgrade
+
+
+}}}
+= shell apk Find a package
+==== shell apk Find a package
+{{{
+apk search $package
+
+}}}
+= shell apparmor Desc: Apparmor will protect the system by confining programs to a limited set of resources.
+==== shell apparmor Desc: Apparmor will protect the system by confining programs to a limited set of resources.
+{{{
+
+
+}}}
+= shell apparmor To activate a profile:
+==== shell apparmor To activate a profile:
+{{{
+sudo aa-enforce usr.bin.firefox
+
+}}}
+= shell apparmor OR
+==== shell apparmor OR
+{{{
+export _PROFILE_='usr.bin.firefox' sudo $(rm /etc/apparmor.d/disable/$_PROFILE_ ; cat /etc/apparmor.d/$_PROFILE_ | apparmor_parser -a )
+
+
+}}}
+= shell apparmor TO disable a profile:
+==== shell apparmor TO disable a profile:
+{{{
+sudo aa-disable usr.bin.firefox
+
+}}}
+= shell apparmor OR
+==== shell apparmor OR
+{{{
+export _PROFILE_='usr.bin.firefox' sudo $(ln -s /etc/apparmor.d/$_PROFILE_ /etc/apparmor.d/disable/ && apparmor_parser -R /etc/apparmor.d/$_PROFILE_)
+
+
+}}}
+= shell apparmor To list profiles loaded:
+==== shell apparmor To list profiles loaded:
+{{{
+sudo aa-status
+
+}}}
+= shell apparmor OR
+==== shell apparmor OR
+{{{
+sudo apparmor_status
+
+
+}}}
+= shell apparmor List of profiles aviables: /etc/apparmor.d/
+==== shell apparmor List of profiles aviables: /etc/apparmor.d/
+{{{
+
+}}}
+= shell apt-cache To search for apt packages:
+==== shell apt-cache To search for apt packages:
+{{{
+apt-cache search "whatever"
+
+
+}}}
+= shell apt-cache To display package records for the named package(s):
+==== shell apt-cache To display package records for the named package(s):
+{{{
+apt-cache show pkg(s)
+
+
+}}}
+= shell apt-cache To display reverse dependencies of a package
+==== shell apt-cache To display reverse dependencies of a package
+{{{
+apt-cache rdepends package_name
+
+
+}}}
+= shell apt-cache To display package versions, reverse dependencies and forward dependencies
+==== shell apt-cache To display package versions, reverse dependencies and forward dependencies
+{{{
+
+}}}
+= shell apt-cache of a package
+==== shell apt-cache of a package
+{{{
+apt-cache showpkg package_name
+
+}}}
+= shell apt-get Desc: Allows to update the operating system
+==== shell apt-get Desc: Allows to update the operating system
+{{{
+
+
+}}}
+= shell apt-get To fetch package list
+==== shell apt-get To fetch package list
+{{{
+apt-get update
+
+
+}}}
+= shell apt-get To download and install updates without installing new package.
+==== shell apt-get To download and install updates without installing new package.
+{{{
+apt-get upgrade
+
+
+}}}
+= shell apt-get To download and install the updates AND install new necessary packages
+==== shell apt-get To download and install the updates AND install new necessary packages
+{{{
+apt-get dist-upgrade
+
+
+}}}
+= shell apt-get Full command:
+==== shell apt-get Full command:
+{{{
+apt-get update && apt-get dist-upgrade
+
+
+}}}
+= shell apt-get To install a new package(s)
+==== shell apt-get To install a new package(s)
+{{{
+apt-get install package(s)
+
+
+}}}
+= shell apt-get Download a package without installing it. (The package will be downloaded in your current working dir)
+==== shell apt-get Download a package without installing it. (The package will be downloaded in your current working dir)
+{{{
+apt-get download modsecurity-crs
+
+
+}}}
+= shell apt-get Change Cache dir and archive dir (where .deb are stored).
+==== shell apt-get Change Cache dir and archive dir (where .deb are stored).
+{{{
+apt-get -o Dir::Cache="/path/to/destination/dir/" -o Dir::Cache::archives="./" install ...
+
+
+}}}
+= shell apt-get Show apt-get installed packages.
+==== shell apt-get Show apt-get installed packages.
+{{{
+grep 'install ' /var/log/dpkg.log
+
+}}}
+= shell aptitude To search for packages:
+==== shell aptitude To search for packages:
+{{{
+aptitude search "whatever"
+
+
+}}}
+= shell aptitude To display package records for the named package(s):
+==== shell aptitude To display package records for the named package(s):
+{{{
+aptitude show pkg(s)
+
+
+}}}
+= shell aptitude To install a package:
+==== shell aptitude To install a package:
+{{{
+aptitude install package
+
+
+}}}
+= shell aptitude To remove a package:
+==== shell aptitude To remove a package:
+{{{
+aptitude remove package
+
+
+}}}
+= shell aptitude To remove unnecessary package:
+==== shell aptitude To remove unnecessary package:
+{{{
+aptitude autoclean
+
+
+}}}
+= shell asciiart To show some text in ASCII Art:
+==== shell asciiart To show some text in ASCII Art:
+{{{
+
+figlet Word
+toilet -F border Word
+toilet Word
+
+}}}
+= shell asterisk To connect to a running Asterisk session:
+==== shell asterisk To connect to a running Asterisk session:
+{{{
+asterisk -rvvv
+
+
+}}}
+= shell asterisk To issue a command to Asterisk from the shell:
+==== shell asterisk To issue a command to Asterisk from the shell:
+{{{
+asterisk -rx "<command>"
+
+
+}}}
+= shell asterisk To originate an echo call from a SIP trunk on an Asterisk server, to a specified number:
+==== shell asterisk To originate an echo call from a SIP trunk on an Asterisk server, to a specified number:
+{{{
+asterisk -rx "channel originate SIP/<trunk>/<number> application echo"
+
+
+}}}
+= shell asterisk To print out the details of SIP accounts:
+==== shell asterisk To print out the details of SIP accounts:
+{{{
+asterisk -rx "sip show peers"
+
+
+}}}
+= shell asterisk To print out the passwords of SIP accounts:
+==== shell asterisk To print out the passwords of SIP accounts:
+{{{
+asterisk -rx "sip show users"
+
+
+}}}
+= shell asterisk To print out the current active channels:
+==== shell asterisk To print out the current active channels:
+{{{
+asterisk -rx "core show channels"
+
+}}}
+= shell at To schedule a one time task
+==== shell at To schedule a one time task
+{{{
+at {time}
+{command 0}
+{command 1}
+Ctrl-d
+
+
+}}}
+= shell at {time} can be either
+==== shell at {time} can be either
+{{{
+now | midnight | noon | teatime (4pm)
+HH:MM
+now + N {minutes | hours | days | weeks}
+MM/DD/YY
+
+
+}}}
+= shell at To list pending jobs
+==== shell at To list pending jobs
+{{{
+atq
+
+
+}}}
+= shell at To remove a job (use id from atq)
+==== shell at To remove a job (use id from atq)
+{{{
+atrm {id}
+
+}}}
+= shell awk sum integers from a file or stdin, one integer per line:
+==== shell awk sum integers from a file or stdin, one integer per line:
+{{{
+printf '1n2n3n' | awk '{ sum += $1} END {print sum}'
+
+}}}
+= shell bash To implement a for loop:
+==== shell bash To implement a for loop:
+{{{
+for file in *;
+do
+echo $file found;
+done
+
+
+}}}
+= shell bash To implement a case command:
+==== shell bash To implement a case command:
+{{{
+case "$1"
+in
+0) echo "zero found";;
+1) echo "one found";;
+2) echo "two found";;
+3*) echo "something beginning with 3 found";;
+esac
+
+}}}
+= shell chmod Add execute for all (myscript.sh)
+==== shell chmod Add execute for all (myscript.sh)
+{{{
+chmod a+x myscript.sh
+
+
+}}}
+= shell chmod Set user to read/write/execute, group/global to read only (myscript.sh), symbolic mode
+==== shell chmod Set user to read/write/execute, group/global to read only (myscript.sh), symbolic mode
+{{{
+chmod u=rwx, go=r myscript.sh
+
+
+}}}
+= shell chmod Remove write from user/group/global (myscript.sh), symbolic mode
+==== shell chmod Remove write from user/group/global (myscript.sh), symbolic mode
+{{{
+chmod a-w myscript.sh
+
+
+}}}
+= shell chmod Remove read/write/execute from user/group/global (myscript.sh), symbolic mode
+==== shell chmod Remove read/write/execute from user/group/global (myscript.sh), symbolic mode
+{{{
+chmod = myscript.sh
+
+
+}}}
+= shell chmod Set user to read/write and group/global read (myscript.sh), octal notation
+==== shell chmod Set user to read/write and group/global read (myscript.sh), octal notation
+{{{
+chmod 644 myscript.sh
+
+
+}}}
+= shell chmod Set user to read/write/execute and group/global read/execute (myscript.sh), octal notation
+==== shell chmod Set user to read/write/execute and group/global read/execute (myscript.sh), octal notation
+{{{
+chmod 755 myscript.sh
+
+
+}}}
+= shell chmod Set user/group/global to read/write (myscript.sh), octal notation
+==== shell chmod Set user/group/global to read/write (myscript.sh), octal notation
+{{{
+chmod 666 myscript.sh
+
+
+}}}
+= shell chmod Roles
+==== shell chmod Roles
+{{{
+u - user (owner of the file)
+g - group (members of file's group)
+o - global (all users who are not owner and not part of group)
+a - all (all 3 roles above)
+
+
+}}}
+= shell chmod Numeric representations
+==== shell chmod Numeric representations
+{{{
+7 - full (rwx)
+6 - read and write (rw-)
+5 - read and execute (r-x)
+4 - read only (r--)
+3 - write and execute (-wx)
+2 - write only (-w-)
+1 - execute only (--x)
+0 - none (---)
+
+}}}
+= shell chown Change file owner
+==== shell chown Change file owner
+{{{
+chown user file
+
+
+}}}
+= shell chown Change file owner and group
+==== shell chown Change file owner and group
+{{{
+chown user:group file
+
+
+}}}
+= shell chown Change owner recursively
+==== shell chown Change owner recursively
+{{{
+chown -R user directory
+
+
+}}}
+= shell chown Change ownership to match another file
+==== shell chown Change ownership to match another file
+{{{
+chown --reference=/path/to/ref_file file
+
+}}}
+= shell convert To resize an image to a fixed width and proportional height:
+==== shell convert To resize an image to a fixed width and proportional height:
+{{{
+convert original-image.jpg -resize 100x converted-image.jpg
+
+
+}}}
+= shell convert To resize an image to a fixed height and proportional width:
+==== shell convert To resize an image to a fixed height and proportional width:
+{{{
+convert original-image.jpg -resize x100 converted-image.jpg
+
+
+}}}
+= shell convert To resize an image to a fixed width and height:
+==== shell convert To resize an image to a fixed width and height:
+{{{
+convert original-image.jpg -resize 100x100 converted-image.jpg
+
+
+}}}
+= shell convert To resize an image and simultaneously change its file type:
+==== shell convert To resize an image and simultaneously change its file type:
+{{{
+convert original-image.jpg -resize 100x converted-image.png
+
+
+}}}
+= shell convert To resize all of the images within a directory:
+==== shell convert To resize all of the images within a directory:
+{{{
+
+}}}
+= shell convert To implement a for loop:
+==== shell convert To implement a for loop:
+{{{
+for file in `ls original/image/path/`;
+do new_path=${file%.*};
+new_file=`basename $new_path`;
+convert $file -resize 150 conerted/image/path/$new_file.png;
+done
+
+}}}
+= shell crontab set a shell
+==== shell crontab set a shell
+{{{
+SHELL=/bin/bash
+
+
+}}}
+= shell crontab crontab format
+==== shell crontab crontab format
+{{{
+cactitests calendar Campaign_tester check_urls comms2.txt edu incidences log_MSISDN_SEARCH ma mr search.sh SYSADM-100046 SYSADM-100061_aux_to_exec02 SYSADM-102755_missing_responsecodes SYSADM-102814_overbillings temp test.out test.sh cactitests calendar Campaign_tester check_urls comms2.txt edu incidences log_MSISDN_SEARCH ma mr search.sh SYSADM-100046 SYSADM-100061_aux_to_exec02 SYSADM-102755_missing_responsecodes SYSADM-102814_overbillings temp test.out test.sh cactitests calendar Campaign_tester check_urls comms2.txt edu incidences log_MSISDN_SEARCH ma mr search.sh SYSADM-100046 SYSADM-100061_aux_to_exec02 SYSADM-102755_missing_responsecodes SYSADM-102814_overbillings temp test.out test.sh cactitests calendar Campaign_tester check_urls comms2.txt edu incidences log_MSISDN_SEARCH ma mr search.sh SYSADM-100046 SYSADM-100061_aux_to_exec02 SYSADM-102755_missing_responsecodes SYSADM-102814_overbillings temp test.out test.sh cactitests calendar Campaign_tester check_urls comms2.txt edu incidences log_MSISDN_SEARCH ma mr search.sh SYSADM-100046 SYSADM-100061_aux_to_exec02 SYSADM-102755_missing_responsecodes SYSADM-102814_overbillings temp test.out test.sh command_to_execute
+- - - - -
+| | | | |
+| | | | +- day of week (0 - 7) (where sunday is 0 and 7)
+| | | +--- month (1 - 12)
+| | +----- day (1 - 31)
+| +------- hour (0 - 23)
++--------- minute (0 - 59)
+
+}}}
+= shell crontab every 15 min
+==== shell crontab every 15 min
+{{{
+*/15 cactitests calendar Campaign_tester check_urls comms2.txt edu incidences log_MSISDN_SEARCH ma mr search.sh SYSADM-100046 SYSADM-100061_aux_to_exec02 SYSADM-102755_missing_responsecodes SYSADM-102814_overbillings temp test.out test.sh cactitests calendar Campaign_tester check_urls comms2.txt edu incidences log_MSISDN_SEARCH ma mr search.sh SYSADM-100046 SYSADM-100061_aux_to_exec02 SYSADM-102755_missing_responsecodes SYSADM-102814_overbillings temp test.out test.sh cactitests calendar Campaign_tester check_urls comms2.txt edu incidences log_MSISDN_SEARCH ma mr search.sh SYSADM-100046 SYSADM-100061_aux_to_exec02 SYSADM-102755_missing_responsecodes SYSADM-102814_overbillings temp test.out test.sh cactitests calendar Campaign_tester check_urls comms2.txt edu incidences log_MSISDN_SEARCH ma mr search.sh SYSADM-100046 SYSADM-100061_aux_to_exec02 SYSADM-102755_missing_responsecodes SYSADM-102814_overbillings temp test.out test.sh /home/user/command.sh
+
+}}}
+= shell crontab every midnight
+==== shell crontab every midnight
+{{{
+0 cactitests calendar Campaign_tester check_urls comms2.txt edu incidences log_MSISDN_SEARCH ma mr search.sh SYSADM-100046 SYSADM-100061_aux_to_exec02 SYSADM-102755_missing_responsecodes SYSADM-102814_overbillings temp test.out test.sh cactitests calendar Campaign_tester check_urls comms2.txt edu incidences log_MSISDN_SEARCH ma mr search.sh SYSADM-100046 SYSADM-100061_aux_to_exec02 SYSADM-102755_missing_responsecodes SYSADM-102814_overbillings temp test.out test.sh cactitests calendar Campaign_tester check_urls comms2.txt edu incidences log_MSISDN_SEARCH ma mr search.sh SYSADM-100046 SYSADM-100061_aux_to_exec02 SYSADM-102755_missing_responsecodes SYSADM-102814_overbillings temp test.out test.sh cactitests calendar Campaign_tester check_urls comms2.txt edu incidences log_MSISDN_SEARCH ma mr search.sh SYSADM-100046 SYSADM-100061_aux_to_exec02 SYSADM-102755_missing_responsecodes SYSADM-102814_overbillings temp test.out test.sh /home/user/command.sh
+
+}}}
+= shell crontab every Saturday at 8:05 AM
+==== shell crontab every Saturday at 8:05 AM
+{{{
+5 8 cactitests calendar Campaign_tester check_urls comms2.txt edu incidences log_MSISDN_SEARCH ma mr search.sh SYSADM-100046 SYSADM-100061_aux_to_exec02 SYSADM-102755_missing_responsecodes SYSADM-102814_overbillings temp test.out test.sh cactitests calendar Campaign_tester check_urls comms2.txt edu incidences log_MSISDN_SEARCH ma mr search.sh SYSADM-100046 SYSADM-100061_aux_to_exec02 SYSADM-102755_missing_responsecodes SYSADM-102814_overbillings temp test.out test.sh 6 /home/user/command.sh
+
+}}}
+= shell curl Download a single file
+==== shell curl Download a single file
+{{{
+curl http://path.to.the/file
+
+
+}}}
+= shell curl Download a file and specify a new filename
+==== shell curl Download a file and specify a new filename
+{{{
+curl http://example.com/file.zip -o new_file.zip
+
+
+}}}
+= shell curl Download multiple files
+==== shell curl Download multiple files
+{{{
+curl -O URLOfFirstFile -O URLOfSecondFile
+
+
+}}}
+= shell curl Download all sequentially numbered files (1-24)
+==== shell curl Download all sequentially numbered files (1-24)
+{{{
+curl http://example.com/pic[1-24].jpg
+
+
+}}}
+= shell curl Download a file and pass HTTP Authentication
+==== shell curl Download a file and pass HTTP Authentication
+{{{
+curl -u username:password URL
+
+
+}}}
+= shell curl Download a file with a Proxy
+==== shell curl Download a file with a Proxy
+{{{
+curl -x proxysever.server.com:PORT http://addressiwantto.access
+
+
+}}}
+= shell curl Download a file from FTP
+==== shell curl Download a file from FTP
+{{{
+curl -u username:password -O ftp://example.com/pub/file.zip
+
+
+}}}
+= shell curl Get an FTP directory listing
+==== shell curl Get an FTP directory listing
+{{{
+curl ftp://username:password@example.com
+
+
+}}}
+= shell curl Resume a previously failed download
+==== shell curl Resume a previously failed download
+{{{
+curl -C - -o partial_file.zip http://example.com/file.zip
+
+
+}}}
+= shell curl Fetch only the HTTP headers from a response
+==== shell curl Fetch only the HTTP headers from a response
+{{{
+curl -I http://example.com
+
+
+}}}
+= shell curl Fetch your external IP and network info as JSON
+==== shell curl Fetch your external IP and network info as JSON
+{{{
+curl http://ifconfig.me/all/json
+
+
+}}}
+= shell curl Limit the rate of a download
+==== shell curl Limit the rate of a download
+{{{
+curl --limit-rate 1000B -O http://path.to.the/file
+
+}}}
+= shell cut To cut out the third field of text or stdoutput that is delimited by a #:
+==== shell cut To cut out the third field of text or stdoutput that is delimited by a #:
+{{{
+cut -d# -f3
+
+}}}
+= shell date Printout date in format suitable for affixing to file names
+==== shell date Printout date in format suitable for affixing to file names
+{{{
+date +"%Y%m%d_%H%M%S"
+
+}}}
+= shell dd Read from {/dev/urandom} 2*512 Bytes and put it into {/tmp/test.txt}
+==== shell dd Read from {/dev/urandom} 2*512 Bytes and put it into {/tmp/test.txt}
+{{{
+
+Note: At the first iteration, we read 512 Bytes.
+Note: At the second iteration, we read 512 Bytes.
+dd if=/dev/urandom of=/tmp/test.txt count=512 bs=2
+
+}}}
+= shell dd Watch the progress of 'dd'
+==== shell dd Watch the progress of 'dd'
+{{{
+dd if=/dev/zero of=/dev/null bs=4KB &; export dd_pid=`pgrep '^dd'`; while [[ -d /proc/$dd_pid ]]; do kill -USR1 $dd_pid && sleep 1 && clear; done
+
+
+}}}
+= shell dd Watch the progress of 'dd' with `pv` and `dialog` (apt-get install pv dialog)
+==== shell dd Watch the progress of 'dd' with `pv` and `dialog` (apt-get install pv dialog)
+{{{
+(pv -n /dev/zero | dd of=/dev/null bs=128M conv=notrunc,noerror) 2>&1 | dialog --gauge "Running dd command (cloning), please wait..." 10 70 0
+
+
+}}}
+= shell dd Watch the progress of 'dd' with `pv` and `zenity` (apt-get install pv zenity)
+==== shell dd Watch the progress of 'dd' with `pv` and `zenity` (apt-get install pv zenity)
+{{{
+(pv -n /dev/zero | dd of=/dev/null bs=128M conv=notrunc,noerror) 2>&1 | zenity --title 'Running dd command (cloning), please wait...' --progress
+
+
+}}}
+= shell dd DD with "graphical" return
+==== shell dd DD with "graphical" return
+{{{
+dcfldd if=/dev/zero of=/dev/null bs=500K
+
+
+}}}
+= shell df Printout disk free space in a human readable format
+==== shell df Printout disk free space in a human readable format
+{{{
+df -h
+
+}}}
+= shell dhclient To release the current IP address:
+==== shell dhclient To release the current IP address:
+{{{
+sudo dhclient -r
+
+
+}}}
+= shell dhclient To obtain a new IP address:
+==== shell dhclient To obtain a new IP address:
+{{{
+sudo dhclient
+
+Running the above in sequence is a common way of refreshing an IP.
+
+
+}}}
+= shell dhclient To obtain a new IP address for a specific interface:
+==== shell dhclient To obtain a new IP address for a specific interface:
+{{{
+sudo dhclient eth0
+
+}}}
+= shell diff To view the differences between two files:
+==== shell diff To view the differences between two files:
+{{{
+diff -u version1 version2
+
+
+}}}
+= shell diff To view the differences between two directories:
+==== shell diff To view the differences between two directories:
+{{{
+diff -ur folder1/ folder2/
+
+
+}}}
+= shell diff To ignore the white spaces:
+==== shell diff To ignore the white spaces:
+{{{
+diff -ub version1 version2
+
+
+}}}
+= shell diff To ignore the blank lines:
+==== shell diff To ignore the blank lines:
+{{{
+diff -uB version1 version2
+
+
+}}}
+= shell diff To ignore the differences between uppercase and lowercase:
+==== shell diff To ignore the differences between uppercase and lowercase:
+{{{
+diff -ui version1 version2
+
+
+}}}
+= shell diff To report whether the files differ:
+==== shell diff To report whether the files differ:
+{{{
+diff -q version1 version2
+
+
+}}}
+= shell diff To report whether the files are identical:
+==== shell diff To report whether the files are identical:
+{{{
+diff -s version1 version2
+
+
+}}}
+= shell diff To diff the output of two commands or scripts:
+==== shell diff To diff the output of two commands or scripts:
+{{{
+diff <(command1) <(command2)
+
+}}}
+= shell distcc INSTALL
+==== shell distcc INSTALL
+{{{
+
+Edit /etc/default/distcc and set theses vars
+
+STARTDISTCC="true"
+ALLOWEDNETS="127.0.0.1 192.168.1.0/24"# Your computer and local computers
+#LISTENER="127.0.0.1"# Comment it
+ZEROCONF="true"# Auto configuration
+
+REMEMBER 1:
+Start/Restart your distccd servers before using one of these commands.
+
+service distccd start
+
+REMEMBER 2:
+Do not forget to install on each machine DISTCC.
+No need to install libs ! Only main host need libs !
+
+}}}
+= shell distcc USAGE
+==== shell distcc USAGE
+{{{
+
+distcc Run make with 4 thread (a cross network) in auto configuration.
+Note: for gcc, Replace CXX by CC and g++ by gcc
+
+ZEROCONF='+zeroconf' make -j4 CXX='distcc g++'
+
+distcc Run make with 4 thread (a cross network) in static configuration (2 ip)
+Note: for gcc, Replace CXX by CC and g++ by gcc
+
+DISTCC_HOSTS='127.0.0.1 192.168.1.69' make -j4 CXX='distcc g++'
+
+distcc Show hosts aviables
+ZEROCONF='+zeroconf' distcc --show-hosts
+
+}}}
+= shell emacs Basic usage
+==== shell emacs Basic usage
+{{{
+
+Indent Select text then press TAB
+Cut CTRL-w
+Copy ALT-w
+Paste CTRL-y
+Search/Find CTRL-s
+Replace ALT-% (ALT-SHIFT-5)
+Save CTRL-x CTRL-s
+Load/Open CTRL-x CTRL-f
+Undo CTRL-x u
+Highlight all text CTRL-x h
+Directory listing CTRL-x d
+Cancel a command ESC ESC ESC
+Font size bigger CTRL-x CTRL-+
+Font size smaller CTRL-x CTRL--
+
+
+}}}
+= shell emacs Buffers
+==== shell emacs Buffers
+{{{
+
+Split screen vertically CTRL-x 2
+Split screen vertically with 5 row height CTRL-u 5 CTRL-x 2
+Split screen horizontally CTRL-x 3
+Split screen horizontally with 24 column width CTRL-u 24 CTRL-x 3
+Revert to single screen CTRL-x 1
+Hide the current screen CTRL-x 0
+Kill the current screen CTRL-x k
+Move to the next buffer CTRL-x O
+Select a buffer CTRL-x b
+Run command in the scratch buffer CTRL-x CTRL-e
+
+
+}}}
+= shell emacs Other stuff
+==== shell emacs Other stuff
+{{{
+
+Open a shell ALT-x eshell
+Goto a line number ALT-x goto-line
+Word wrap ALT-x toggle-word-wrap
+Spell checking ALT-x flyspell-mode
+Line numbers ALT-x linum-mode
+Toggle line wrap ALT-x visual-line-mode
+Compile some code ALT-x compile
+List packages ALT-x package-list-packages
+
+
+}}}
+= shell emacs Sudoing within eshell
+==== shell emacs Sudoing within eshell
+{{{
+
+By default when using the sudo command within eshell you'll just
+get "permission denied" messages. To overcome that type:
+
+alias sudo '*sudo $*'
+
+
+}}}
+= shell emacs Line numbers
+==== shell emacs Line numbers
+{{{
+
+To add line numbers and enable moving to a line with CTRL-l:
+
+(global-set-key "C-l" 'goto-line)
+(add-hook 'find-file-hook (lambda () (linum-mode 1)))
+
+
+}}}
+= shell emacs Org-mode
+==== shell emacs Org-mode
+{{{
+
+To begin org-mode ALT-x org-mode
+Table column separator Vertical/pipe character
+Reorganize table TAB
+Section heading cactitests calendar Campaign_tester check_urls comms2.txt edu incidences log_MSISDN_SEARCH ma mr search.sh SYSADM-100046 SYSADM-100061_aux_to_exec02 SYSADM-102755_missing_responsecodes SYSADM-102814_overbillings temp test.out test.sh
+Open/collapse section TAB
+Open/collapse All CTRL-TAB
+Export in other file formats (eg HTML,PDF) CTRL-c CTRL-e
+
+To make org-mode automatically wrap lines:
+
+(add-hook 'org-mode-hook
+'(lambda ()
+(visual-line-mode 1)))
+
+}}}
+= shell find To find files by case-insensitive extension (ex: .jpg, .JPG, .jpG):
+==== shell find To find files by case-insensitive extension (ex: .jpg, .JPG, .jpG):
+{{{
+find . -iname "*.jpg"
+
+
+}}}
+= shell find To find directories:
+==== shell find To find directories:
+{{{
+find . -type d
+
+
+}}}

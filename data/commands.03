@@ -1,0 +1,1003 @@
+= shell journalctl Filter by executable name
+==== shell journalctl Filter by executable name
+
+{{{
+journalctl /usr/bin/dbus-daemon
+
+
+}}}
+= shell journalctl Filter by PID
+==== shell journalctl Filter by PID
+{{{
+journalctl _PID=123
+
+
+}}}
+= shell less To disable the terminal refresh when exiting
+==== shell less To disable the terminal refresh when exiting
+{{{
+less -X
+
+}}}
+= shell ln To create a symlink:
+==== shell ln To create a symlink:
+{{{
+ln -s path/to/the/target/directory name-of-symlink
+
+}}}
+= shell ls Displays everything in the target directory
+==== shell ls Displays everything in the target directory
+{{{
+ls path/to/the/target/directory
+
+
+}}}
+= shell ls Displays everything including hidden files
+==== shell ls Displays everything including hidden files
+{{{
+ls -a
+
+
+}}}
+= shell ls Displays all files, along with the size (with unit suffixes) and timestamp
+==== shell ls Displays all files, along with the size (with unit suffixes) and timestamp
+{{{
+ls -lh
+
+
+}}}
+= shell ls Display files, sorted by size
+==== shell ls Display files, sorted by size
+{{{
+ls -S
+
+}}}
+= shell lsof List all IPv4 network files
+==== shell lsof List all IPv4 network files
+{{{
+sudo lsof -i4
+
+
+}}}
+= shell lsof List all IPv6 network files
+==== shell lsof List all IPv6 network files
+{{{
+sudo lsof -i6
+
+
+}}}
+= shell lsof To find listening ports:
+==== shell lsof To find listening ports:
+{{{
+lsof -Pnl +M -i4
+
+
+}}}
+= shell lsof To find which program is using the port 80:
+==== shell lsof To find which program is using the port 80:
+{{{
+lsof -i TCP:80
+
+
+}}}
+= shell lsof List all processes accessing a particular file/directory
+==== shell lsof List all processes accessing a particular file/directory
+{{{
+lsof </path/to/file>
+
+
+}}}
+= shell lsof List all files open for a particular user
+==== shell lsof List all files open for a particular user
+{{{
+lsof -u <username>
+
+
+}}}
+= shell lsof List all files/network connections a given process is using
+==== shell lsof List all files/network connections a given process is using
+{{{
+lsof -c <command-name>
+
+
+
+}}}
+= wiki markdown headers
+==== wiki markdown headers
+{{{
+h1 header
+}}}
+=========
+============
+{{{
+h2 header
+---------
+
+
+}}}
+= wiki markdown blockquotes
+==== wiki markdown blockquotes
+{{{
+> first level and paragraph
+>> second level and first paragraph
+>
+> first level and second paragraph
+
+
+}}}
+= wiki markdown lists
+==== wiki markdown lists
+{{{
+
+}}}
+= wiki markdown# unordered - use *, +, or -
+==== wiki markdown# unordered - use *, +, or -
+{{{
+cactitests calendar Campaign_tester check_urls comms2.txt edu incidences log_MSISDN_SEARCH ma mr search.sh SYSADM-100046 SYSADM-100061_aux_to_exec02 SYSADM-102755_missing_responsecodes SYSADM-102814_overbillings temp test.out test.sh Red
+cactitests calendar Campaign_tester check_urls comms2.txt edu incidences log_MSISDN_SEARCH ma mr search.sh SYSADM-100046 SYSADM-100061_aux_to_exec02 SYSADM-102755_missing_responsecodes SYSADM-102814_overbillings temp test.out test.sh Green
+cactitests calendar Campaign_tester check_urls comms2.txt edu incidences log_MSISDN_SEARCH ma mr search.sh SYSADM-100046 SYSADM-100061_aux_to_exec02 SYSADM-102755_missing_responsecodes SYSADM-102814_overbillings temp test.out test.sh Blue
+
+
+}}}
+= wiki markdown# ordered
+==== wiki markdown# ordered
+{{{
+1. First
+2. Second
+3. Third
+
+
+}}}
+= wiki markdown code - use 4 spaces/1 tab
+==== wiki markdown code - use 4 spaces/1 tab
+{{{
+regular text
+code code code
+or:
+Use the `printf()` function
+
+
+}}}
+= wiki markdown hr's - three or more of the following
+==== wiki markdown hr's - three or more of the following
+{{{
+cactitests calendar Campaign_tester check_urls comms2.txt edu incidences log_MSISDN_SEARCH ma mr search.sh SYSADM-100046 SYSADM-100061_aux_to_exec02 SYSADM-102755_missing_responsecodes SYSADM-102814_overbillings temp test.out test.sh
+---
+___
+
+
+}}}
+= wiki markdown links
+==== wiki markdown links
+{{{
+This is [an example](http://example.com "Title") inline link.
+
+
+}}}
+= wiki markdown emphasis
+==== wiki markdown emphasis
+{{{
+temp _em_
+
+**strong** __strong__
+
+}}}
+= shell mkdir Create a directory and all its parents
+==== shell mkdir Create a directory and all its parents
+{{{
+mkdir -p foo/bar/baz
+
+
+}}}
+= shell mkdir Create foo/bar and foo/baz directories
+==== shell mkdir Create foo/bar and foo/baz directories
+{{{
+mkdir -p foo/{bar,baz}
+
+
+}}}
+= shell mkdir Create the foo/bar, foo/baz, foo/baz/zip and foo/baz/zap directories
+==== shell mkdir Create the foo/bar, foo/baz, foo/baz/zip and foo/baz/zap directories
+{{{
+mkdir -p foo/{bar,baz/{zip,zap}}
+
+
+}}}
+= shell mount To mount / partition as read-write in repair mode:
+==== shell mount To mount / partition as read-write in repair mode:
+{{{
+mount -o remount,rw /
+
+
+}}}
+= shell mount To mount Usb disk as user writable:
+==== shell mount To mount Usb disk as user writable:
+{{{
+mount -o uid=username,gid=usergroup /dev/sdx /mnt/xxx
+
+
+}}}
+= shell mount To mount a remote NFS directory
+==== shell mount To mount a remote NFS directory
+{{{
+mount -t nfs example.com:/remote/example/dir /local/example/dir
+
+}}}
+= shell mysql To connect to a database
+==== shell mysql To connect to a database
+{{{
+mysql -h localhost -u root -p
+
+
+}}}
+= shell mysql To backup all databases
+==== shell mysql To backup all databases
+{{{
+mysqldump --all-databases --all-routines -u root -p > ~/fulldump.sql
+
+
+}}}
+= shell mysql To restore all databases
+==== shell mysql To restore all databases
+{{{
+mysql -u root -p < ~/fulldump.sql
+
+
+}}}
+= shell mysql To create a database in utf8 charset
+==== shell mysql To create a database in utf8 charset
+{{{
+CREATE DATABASE owa CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+
+}}}
+= shell mysql To add a user and give rights on the given database
+==== shell mysql To add a user and give rights on the given database
+{{{
+GRANT ALL PRIVILEGES ON database.* TO 'user'@'localhost'IDENTIFIED BY 'password' WITH GRANT OPTION;
+# To dump a database to a file (Note that your password will appear in your command history!):
+mysqldump -uusername -ppassword the-database > db.sql
+
+
+}}}
+= shell mysqldump To dump a database to a file:
+==== shell mysqldump To dump a database to a file:
+{{{
+mysqldump -uusername -p the-database > db.sql
+
+# To dump a database to a .tgz file (Note that your password will appear in your command history!):
+mysqldump -uusername -ppassword the-database | gzip -9 > db.sql
+
+
+}}}
+= shell mysqldump To dump a database to a .tgz file:
+==== shell mysqldump To dump a database to a .tgz file:
+{{{
+mysqldump -uusername -p the-database | gzip -9 > db.sql
+
+# To dump all databases to a file (Note that your password will appear in your command history!):
+mysqldump -uusername -ppassword --all-databases > all-databases.sql
+
+
+}}}
+= shell mysqldump To dump all databases to a file:
+==== shell mysqldump To dump all databases to a file:
+{{{
+mysqldump -uusername -p --all-databases > all-databases.sql
+
+
+}}}
+= shell mysqldump To export the database structure only:
+==== shell mysqldump To export the database structure only:
+{{{
+mysqldump --no-data -uusername -p the-database > dump_file
+
+
+}}}
+= shell mysqldump To export the database data only:
+==== shell mysqldump To export the database data only:
+{{{
+mysqldump --no-create-info -uusername -p the-database > dump_file
+
+}}}
+= shell ncat Connect mode (ncat is client) | default port is 31337
+==== shell ncat Connect mode (ncat is client) | default port is 31337
+{{{
+ncat <host> [<port>]
+
+
+}}}
+= shell ncat Listen mode (ncat is server) | default port is 31337
+==== shell ncat Listen mode (ncat is server) | default port is 31337
+{{{
+ncat -l [<host>] [<port>]
+
+
+}}}
+= shell ncat Transfer file (closes after one transfer)
+==== shell ncat Transfer file (closes after one transfer)
+{{{
+ncat -l [<host>] [<port>] < file
+
+
+}}}
+= shell ncat Transfer file (stays open for multiple transfers)
+==== shell ncat Transfer file (stays open for multiple transfers)
+{{{
+ncat -l --keep-open [<host>] [<port>] < file
+
+
+}}}
+= shell ncat Receive file
+==== shell ncat Receive file
+{{{
+ncat [<host>] [<port>] > file
+
+
+}}}
+= shell ncat Brokering | allows for multiple clients to connect
+==== shell ncat Brokering | allows for multiple clients to connect
+{{{
+ncat -l --broker [<host>] [<port>]
+
+
+}}}
+= shell ncat Listen with SSL | many options, use ncat --help for full list
+==== shell ncat Listen with SSL | many options, use ncat --help for full list
+{{{
+ncat -l --ssl [<host>] [<port>]
+
+
+}}}
+= shell ncat Access control
+==== shell ncat Access control
+{{{
+ncat -l --allow <ip>
+ncat -l --deny <ip>
+
+
+}}}
+= shell ncat Proxying
+==== shell ncat Proxying
+{{{
+ncat --proxy <proxyhost>[:<proxyport>] --proxy-type {http | socks4} <host>[<port>]
+
+
+}}}
+= shell ncat Chat server | can use brokering for multi-user chat
+==== shell ncat Chat server | can use brokering for multi-user chat
+{{{
+ncat -l --chat [<host>] [<port>]
+
+
+}}}
+= shell netstat To view which users/processes are listening to which ports:
+==== shell netstat To view which users/processes are listening to which ports:
+{{{
+sudo netstat -lnptu
+
+
+}}}
+= shell netstat To view routing table (use -n flag to disable DNS lookups):
+==== shell netstat To view routing table (use -n flag to disable DNS lookups):
+{{{
+netstat -r
+
+Alternative for netstat-r
+ip route
+
+}}}
+= shell netstat Which process is listening to port <port>
+==== shell netstat Which process is listening to port <port>
+{{{
+netstat -pln | grep <port> | awk '{print $NF}'
+
+Example output: 1507/python
+
+
+}}}
+= shell netstat Fast display of ipv4 tcp listening programs
+==== shell netstat Fast display of ipv4 tcp listening programs
+{{{
+sudo netstat -vtlnp --listening -4
+
+
+}}}
+= shell netstat WARNING ! netstat is deprecated.
+==== shell netstat WARNING ! netstat is deprecated.
+{{{
+Replace it by:
+ss
+alternative for netstat -i
+ip -s link
+alternative for netstat-g
+ip maddr
+
+}}}
+= shell nmap Single target scan:
+==== shell nmap Single target scan:
+{{{
+nmap [target]
+
+
+}}}
+= shell nmap Scan from a list of targets:
+==== shell nmap Scan from a list of targets:
+{{{
+nmap -iL [list.txt]
+
+
+}}}
+= shell nmap iPv6:
+==== shell nmap iPv6:
+{{{
+nmap -6 [target]
+
+
+}}}
+= shell nmap OS detection:
+==== shell nmap OS detection:
+{{{
+nmap -O --osscan_guess [target]
+
+
+}}}
+= shell nmap Save output to text file:
+==== shell nmap Save output to text file:
+{{{
+nmap -oN [output.txt] [target]
+
+
+}}}
+= shell nmap Save output to xml file:
+==== shell nmap Save output to xml file:
+{{{
+nmap -oX [output.xml] [target]
+
+
+}}}
+= shell nmap Scan a specific port:
+==== shell nmap Scan a specific port:
+{{{
+nmap -source-port [port] [target]
+
+
+}}}
+= shell nmap Do an aggressive scan:
+==== shell nmap Do an aggressive scan:
+{{{
+nmap -A [target]
+
+
+}}}
+= shell nmap Speedup your scan:
+==== shell nmap Speedup your scan:
+{{{
+nmap -T5 --min-parallelism=50 [target]
+
+
+}}}
+= shell nmap Traceroute:
+==== shell nmap Traceroute:
+{{{
+nmap -traceroute [target]
+
+
+}}}
+= shell nmap Ping scan only:
+==== shell nmap Ping scan only:
+{{{
+-sP
+
+}}}
+= shell nmap Don't ping:
+==== shell nmap Don't ping:
+{{{
+-PN
+
+}}}
+= shell nmap TCP SYN ping:
+==== shell nmap TCP SYN ping:
+{{{
+-PS
+
+}}}
+= shell nmap TCP ACK ping:
+==== shell nmap TCP ACK ping:
+{{{
+-PA
+
+}}}
+= shell nmap UDP ping:
+==== shell nmap UDP ping:
+{{{
+-PU
+
+}}}
+= shell nmap ARP ping:
+==== shell nmap ARP ping:
+{{{
+-PR
+
+
+}}}
+= shell nmap Example: Ping scan all machines on a class C network
+==== shell nmap Example: Ping scan all machines on a class C network
+{{{
+nmap -sP 192.168.0.0/24
+
+
+}}}
+= shell nmap Use some script:
+==== shell nmap Use some script:
+{{{
+nmap --script default,safe
+
+
+}}}
+= shell nmap Loads the script in the default category, the banner script, and all .nse files in the directory /home/user/customscripts.
+==== shell nmap Loads the script in the default category, the banner script, and all .nse files in the directory /home/user/customscripts.
+{{{
+nmap --script default,banner,/home/user/customscripts
+
+
+}}}
+= shell nmap Loads all scripts whose name starts with http-, such as http-auth and http-open-proxy.
+==== shell nmap Loads all scripts whose name starts with http-, such as http-auth and http-open-proxy.
+{{{
+nmap --script 'http-*'
+
+
+}}}
+= shell nmap Loads every script except for those in the intrusive category.
+==== shell nmap Loads every script except for those in the intrusive category.
+{{{
+nmap --script "not intrusive"
+
+
+}}}
+= shell nmap Loads those scripts that are in both the default and safe categories.
+==== shell nmap Loads those scripts that are in both the default and safe categories.
+{{{
+nmap --script "default and safe"
+
+
+}}}
+= shell nmap Loads scripts in the default, safe, or intrusive categories, except for those whose names start with http-.
+==== shell nmap Loads scripts in the default, safe, or intrusive categories, except for those whose names start with http-.
+{{{
+nmap --script "(default or safe or intrusive) and not http-*"
+
+}}}
+= shell notify-send To send a desktop notification via dbus:
+==== shell notify-send To send a desktop notification via dbus:
+{{{
+notify-send -i 'icon-file/name' -a 'application_name' 'summary' 'body of message'
+
+notify-send The -i and -a flags can be omitted if unneeded.
+
+}}}
+= shell od Dump file in octal format
+==== shell od Dump file in octal format
+{{{
+od /path/to/binaryfile
+od -o /path/to/binaryfile
+od -t o2 /path/to/binaryfile
+
+
+}}}
+= shell od Dump file in hexadecimal format
+==== shell od Dump file in hexadecimal format
+{{{
+od -x /path/to/binaryfile
+od -t x2 /path/to/binaryfile
+
+
+}}}
+= shell od Dump file in hexadecimal format, with hexadecimal offsets and a space between each byte
+==== shell od Dump file in hexadecimal format, with hexadecimal offsets and a space between each byte
+{{{
+od -A x -t x1 /path/to/binaryfile
+
+}}}
+= shell openssl To create a 2048-bit private key:
+==== shell openssl To create a 2048-bit private key:
+{{{
+openssl genrsa -out server.key 2048
+
+
+}}}
+= shell openssl To create the Certificate Signing Request (CSR):
+==== shell openssl To create the Certificate Signing Request (CSR):
+{{{
+openssl req -new -key server.key -out server.csr
+
+
+}}}
+= shell openssl To sign a certificate using a private key and CSR:
+==== shell openssl To sign a certificate using a private key and CSR:
+{{{
+openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+
+
+}}}
+= shell openssl (The above commands may be run in sequence to generate a self-signed SSL certificate.)
+==== shell openssl (The above commands may be run in sequence to generate a self-signed SSL certificate.)
+{{{
+
+
+}}}
+= shell openssl To show certificate information for a certificate signing request
+==== shell openssl To show certificate information for a certificate signing request
+{{{
+openssl req -text -noout -in server.csr
+
+
+}}}
+= shell openssl To show certificate information for generated certificate
+==== shell openssl To show certificate information for generated certificate
+{{{
+openssl x509 -text -noout -in server.crt
+
+
+}}}
+= shell openssl To view certificate expiration:
+==== shell openssl To view certificate expiration:
+{{{
+echo | openssl s_client -connect <hostname>:443 2> /dev/null | awk '/-----BEGIN/,/END CERTIFICATE-----/' | openssl x509 -noout -enddate
+
+}}}
+= shell pacman To search for a package
+==== shell pacman To search for a package
+{{{
+pacman -Ss <package name>
+
+
+}}}
+= shell pacman To update the local package base and upgrade all out of date packages
+==== shell pacman To update the local package base and upgrade all out of date packages
+{{{
+pacman -Suy
+
+
+}}}
+= shell pacman To install a package
+==== shell pacman To install a package
+{{{
+pacman -S <package name>
+
+
+}}}
+= shell pacman To uninstall a package
+==== shell pacman To uninstall a package
+{{{
+pacman -R <package name>
+
+
+}}}
+= shell pacman To uninstall a package and his depedencies, removing all new orphans
+==== shell pacman To uninstall a package and his depedencies, removing all new orphans
+{{{
+pacman -Rcs <package name>
+
+
+}}}
+= shell pacman To get informations about a package
+==== shell pacman To get informations about a package
+{{{
+pacman -Si <package name>
+
+
+}}}
+= shell pacman To install a package from builded package file (.tar.xz)
+==== shell pacman To install a package from builded package file (.tar.xz)
+{{{
+pacman -U <file name/file url>
+
+
+}}}
+= shell pacman To list the commands provided by an installed package
+==== shell pacman To list the commands provided by an installed package
+{{{
+pacman -Ql <package name> | sed -n -e 's/.*/bin///p' | tail -n +2
+
+
+}}}
+= shell pacman To list explicitly installed packages
+==== shell pacman To list explicitly installed packages
+{{{
+pacman -Qe
+
+
+}}}
+= shell pacman To list orphan packages (installed as dependencies and not required anymore)
+==== shell pacman To list orphan packages (installed as dependencies and not required anymore)
+{{{
+pacman -Qdt
+
+
+
+}}}
+= shell pacman install packages from the AUR
+==== shell pacman install packages from the AUR
+{{{
+
+
+# You can't directly install packages from the Arch User Database (AUR) with pacman.
+# You need yaourt to perform that. But considering yaourt itself is in the AUR, here is how to build a package from its tarball.
+# Installing a package from AUR is a relatively simple process:
+# - Retrieve the archive corresponding to your package from AUR website
+# - Extract the archive (preferably in a folder for this purpose)
+# - Run makepkg in the extracted directory. (makepkg-s allows you to install any dependencies automatically from deposits.)
+# - Install the package created using pacman
+# Assuming $pkgname contains the package name.
+wget "https://aur.archlinux.org/packages/${pkgname::2}/$pkgname/$pkgname.tar.gz"
+tar zxvf "$pkgname.tar.gz"
+cd "$pkgname"
+# Build the package
+makepkg -s
+# Install
+sudo pacman -U <package file (.pkg.tar.xz)>
+
+}}}
+= shell pdftk Concatenate all pdf files into one:
+==== shell pdftk Concatenate all pdf files into one:
+{{{
+pdftk *.pdf cat output all.pdf
+
+
+}}}
+= shell pdftk Concatenate specific pdf files into one:
+==== shell pdftk Concatenate specific pdf files into one:
+{{{
+pdftk 1.pdf 2.pdf 3.pdf cat output 123.pdf
+
+
+}}}
+= shell pdftk Concatenate pages 1 to 5 of first.pdf with page 3 of second.pdf
+==== shell pdftk Concatenate pages 1 to 5 of first.pdf with page 3 of second.pdf
+{{{
+pdftk A=fist.pdf B=second.pdf cat A1-5 B3 output new.pdf
+
+
+}}}
+= shell php To view the php version:
+==== shell php To view the php version:
+{{{
+php -v
+
+
+}}}
+= shell php To view the installed php modules:
+==== shell php To view the installed php modules:
+{{{
+php -m
+
+
+}}}
+= shell php To view phpinfo() information:
+==== shell php To view phpinfo() information:
+{{{
+php -i
+
+
+}}}
+= shell php To lint a php file:
+==== shell php To lint a php file:
+{{{
+php -l file.php
+
+
+}}}
+= shell php To lint all php files within the cwd:
+==== shell php To lint all php files within the cwd:
+{{{
+find . -name "*.php" -print0 | xargs -0 -n1 -P8 php -l
+
+
+}}}
+= shell php To enter an interactive shell:
+==== shell php To enter an interactive shell:
+{{{
+php -a
+
+
+}}}
+= shell php To locate the system's php.ini files:
+==== shell php To locate the system's php.ini files:
+{{{
+php -i | grep "php.ini"
+
+
+}}}
+= shell php To start a local webserver for the cwd on port 3000 (requires php >= 5.4):
+==== shell php To start a local webserver for the cwd on port 3000 (requires php >= 5.4):
+{{{
+php -S localhost:3000
+
+}}}
+= shell ps To list every process on the system:
+==== shell ps To list every process on the system:
+{{{
+ps aux
+
+
+}}}
+= shell ps To list a process tree
+==== shell ps To list a process tree
+{{{
+ps axjf
+
+
+}}}
+= shell ps To list every process owned by foouser:
+==== shell ps To list every process owned by foouser:
+{{{
+ps -aufoouser
+
+
+}}}
+= ps To list every process with a user-defined format:
+==== ps To list every process with a user-defined format:
+{{{
+ps -eo pid,user,command
+
+
+
+}}}
+= shell ps Add [] to the first letter. Ex: sshd -> [s]shd
+==== shell ps Add [] to the first letter. Ex: sshd -> [s]shd
+{{{
+ps aux | grep '[h]ttpd'
+
+
+}}}
+= shell python Basic example of server with python
+==== shell python Basic example of server with python
+{{{
+
+# Will start a Web Server in the current directory on port 8000
+# go to http://127.0.0.1:8000
+# Python v2.7
+python -m SimpleHTTPServer
+# Python 3
+python -m http.server 8000
+# SMTP-Server for debugging, messages will be discarded, and printed on stdout.
+python -m smtpd -n -c DebuggingServer localhost:1025
+# Pretty print a json
+python -mjson.tool
+
+}}}
+= shell Moving around
+==== shell Moving around
+{{{
+Ctrl-b Move the cursor one character ? to the left
+Ctrl-f Move the cursor one character ? to the right
+Alt-b Move the cursor one word ? to the left
+Alt-f Move the cursor one word ? to the right
+Ctrl-a Move the cursor ? to the start of the line
+Ctrl-e Move the cursor ? to the end of the line
+Ctrl-x-x Move the cursor ?? to the start, and to the end again
+
+}}}
+= shell Cut, copy and paste
+==== shell Cut, copy and paste
+{{{
+Backspace Delete the character ? to the left of the cursor
+DEL
+Ctrl-d Delete the character underneath the cursor
+Ctrl-u Delete everything ? from the cursor back to the line start
+Ctrl-k Delete everything ? from the cursor to the end of the line
+Alt-d Delete word ? until before the next word boundary
+Ctrl-w Delete word ? until after the previous word boundary
+Ctrl-y Yank/Paste prev. killed text at the cursor position
+Alt-y Yank/Paste prev. prev. killed text at the cursor position
+
+}}}
+= shell History
+==== shell History
+{{{
+Ctrl-p Move in history one line ? before this line
+Ctrl-n Move in history one line ? after this line
+Alt-> Move in history all the lines ? to the line currently being entered
+Ctrl-r Incrementally search the line history ? backwardly
+Ctrl-s Incrementally search the line history ? forwardly
+Ctrl-J End an incremental search
+Ctrl-G Abort an incremental search and restore the original line
+Alt-Ctrl-y Yank/Paste arg. 1 of prev. cmnd at the cursor position
+Alt-.
+Alt-_ Yank/Paste last arg of prev. cmnd at the cursor position
+
+}}}
+= shell Undo
+==== shell Undo
+{{{
+Ctrl-_
+Ctrl-x
+Ctrl-u Undo the last editing command; you can undo all the way back to an empty line
+Alt-r Undo all changes made to this line
+Ctrl-l Clear the screen, reprinting the current line at the top
+Ctrl-l Clear the screen, reprinting the current line at the top
+
+}}}
+= shell Completion
+==== shell Completion
+{{{
+TAB Auto-complete a name
+Alt-/ Auto-complete a name (without smart completion)
+Alt-? List the possible completions of the preceeding text
+Alt-* Insert all possible completions of the preceeding text
+
+}}}
+= shell Transpose
+==== shell Transpose
+{{{
+Ctrl-t Transpose/drag char. before the cursor ? over the character at the cursor
+Alt-t Transpose/drag word before the cursor ? over the word at/after the cursor
+
+}}}
+= shell rm Remove files and subdirs
+==== shell rm Remove files and subdirs
+{{{
+rm -rf path/to/the/target/
+
+
+}}}
+= shell rm Ignore non existent files
+==== shell rm Ignore non existent files
+{{{
+rm -f path/to/the/target
+
+}}}
+= shell rpm To install a package:
+==== shell rpm To install a package:
+{{{
+rpm -ivh <rpm>
+
+
+}}}
+= shell rpm To remove a package:
+==== shell rpm To remove a package:
+{{{
+rpm -e <package>
+
+
+}}}
+= shell rpm To find what package installs a file:
+==== shell rpm To find what package installs a file:
+{{{
+rpm -qf </path/to/file>
+
+
+}}}
+= shell rpm To find what files are installed by a package:
+==== shell rpm To find what files are installed by a package:
+{{{
+rpm -qpl <rpm>
+
+
+}}}
+= shell rpm To list all installed packages:
+==== shell rpm To list all installed packages:
+{{{
+rpm -qa
+
+}}}
+= shell rsync copy files from remote to local, maintaining file propertires and sym-links (-a), zipping for faster transfer (-z), verbose (-v).
+==== shell rsync copy files from remote to local, maintaining file propertires and sym-links (-a), zipping for faster transfer (-z), verbose (-v).
+{{{
+rsync -avz host:file1 :file1 /dest/
+rsync -avz /source host:/dest
+
+
+}}}
+= shell rsync Copy files using checksum (-c), rather than time, to detect if the file has changed. (Useful for validating backups).
+==== shell rsync Copy files using checksum (-c), rather than time, to detect if the file has changed. (Useful for validating backups).
+{{{
+rsync -avc /source/ /dest/
+
+}}}
+= shell sam2p Concatenate all pdf files into one:
+==== shell sam2p Concatenate all pdf files into one:
+{{{
+sam2p *.pdf out.pdf
