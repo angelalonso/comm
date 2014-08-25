@@ -77,21 +77,25 @@ def MapData(entries_list):
             wordmap[word] = keys
     return wordmap
 
-def Search(terms,entries,entries_map):
+def Search(terms, entries, entries_map):
     entries_order = {}
     entries_list = []
     for word in terms.split(' '):
-        keys_found = entries_map[word]
-        keys = keys_found.keys()
-        for key in keys:
-            try:
-                entries_order[key] += keys_found[key]
-            except KeyError:
-                entries_order[key] = keys_found[key]
+        if word != '':
+            #print "---" + word + "---"
+            for quasi_word in entries_map.keys():
+                if word in quasi_word:
+                    keys_found = entries_map[quasi_word]
+                    keys = keys_found.keys()
+                    for key in keys:
+                        try:
+                            entries_order[key] += keys_found[key]
+                        except KeyError:
+                            entries_order[key] = keys_found[key]
     sorted_tuples = sorted(entries_order.iteritems(), key=operator.itemgetter(1),  reverse=True)
     for tuple in sorted_tuples:
-	    key = tuple[0]
-	    entries_list.append(entries[key])
+            key = tuple[0]
+            entries_list.append(entries[key])
     return entries_list
-	
+    
 	
